@@ -24,6 +24,33 @@ not what makes their AI output good. The process is. Follow it every time.
     behind it is guesswork.
   - **Type:** families, weights and a size scale.
   - **Direction:** one sentence.
+- Pairings that work, because both colours share one scene (ground x accent). Treat
+  them as families and pick your own hex values:
+
+  | Mood | Ground | Accent |
+  |---|---|---|
+  | mineral | bone | oxidised copper |
+  | maritime | fog grey | deep navy |
+  | rusted | graphite | rust |
+  | industrial | concrete | safety orange |
+  | bookish | plaster | ink |
+  | chapel | slate | amethyst |
+  | candlelit | warm amber | oxblood |
+  | botanical | bone | moss |
+  | tropical | palm shadow | hibiscus |
+  | alpine | snow | evergreen |
+  | nocturnal | wet asphalt | hot pink |
+  | terminal | CRT black | phosphor green |
+  | dashboard | instrument black | amber LED |
+  | signage | ink | chrome yellow |
+  | gallery | pure white | cadmium red |
+  | editorial | pure white | cobalt |
+  | hypertext | pure white | link blue |
+  | highlighter | pure white | fluorescent yellow |
+  | brutalist | pure white | pure black, nothing else |
+
+  Other good moods to draw from: sun-bleached, overcast, inky, arid, foggy, subterranean,
+  tidal, pastoral, chalky.
 - Default to a light theme unless the user asks otherwise; still ship dark tokens.
 - Check fonts exist (Google Fonts or local) before using them.
 
