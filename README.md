@@ -24,6 +24,10 @@ Or copy `skills/html-design` into your agent's skills folder (for Claude Code, `
 
 Ask your agent to design something: "design the settings screen for a budgeting app", "make three directions for a landing page", "build a small UI kit for this product". To build on an existing design system, point it at your tokens file and it will only use those values.
 
+## Credit
+
+The brief format, the review checklist and several taste rules are adapted, in our own words, from the design guide that [Paper](https://paper.design) serves to agents through its MCP server. If you have Paper, use it; this is for working in plain files.
+
 ## License
 
 MIT

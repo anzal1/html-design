@@ -5,59 +5,67 @@ description: Design app and web UI as real HTML/CSS prototypes with design-tool 
 
 # HTML design
 
-A browser renders HTML and CSS exactly the way canvas tools like Paper do, so tool
-quality is not the gap. Quality comes from the discipline below. Follow it every time.
+A browser renders HTML and CSS the same way canvas design tools do, so the canvas is
+not what makes their AI output good. The process is. Follow it every time.
 
 ## 1. Before any markup: context and brief
 
-- Look for an existing kit first (a `tokens.css`, a design-system folder, a Paper or
-  Figma file the user named). If one exists, use only its tokens and components and
-  skip the brief. Never invent a colour, size or radius outside the kit; add a token
-  to the kit instead and say so.
-- No kit: post a short brief in chat before writing any file, and wait only if the
-  user asked to approve it:
-  - **Mood candidates:** 3 to 5, mixing obvious and less obvious ones.
-  - **Mood chosen:** one, and one sentence on why it is not the first instinct.
-  - **Palette:** 5 or 6 hex values with roles, each taken from a real object in the
-    mood's scene (a "mineral" mood: limestone, slate, oxidised copper). If a role has
-    no object, the palette is abstract and will feel glued together.
+- Look for an existing kit first (a `tokens.css`, a design-system folder, a design file
+  the user named). If one exists, use only its tokens and components and skip the brief.
+  Never invent a colour, size or radius outside the kit; add a token and say so.
+- No kit: post a short brief in chat before writing any file. Wait for approval only if
+  the user asked to approve it.
+  - **Moods considered:** 3 to 5 physical settings the product could live in, some
+    expected and some surprising.
+  - **Mood picked:** one that was not your first idea, with one sentence on why. First
+    ideas converge on the same few looks.
+  - **Palette:** 5 or 6 hex values with roles. Name the real object each one comes from
+    (a "harbour at dawn" mood: wet rope, fog, signal-buoy red). A colour with no object
+    behind it is guesswork.
   - **Type:** families, weights and a size scale.
   - **Direction:** one sentence.
+- Default to a light theme unless the user asks otherwise; still ship dark tokens.
 - Check fonts exist (Google Fonts or local) before using them.
 
 ## 2. Taste rules
 
-- Restraint. Fewer elements, more space. When torn between adding and removing, remove.
-  Add one warm human touch so minimal does not feel cold.
-- Vary spacing on purpose: tight inside a group, generous around the hero.
-- Hierarchy through scale and weight contrast: a large, heavy display face next to
-  small regular labels. Slightly tighter tracking on big type, normal or open on small
-  caps and tiny labels.
-- Colour is deliberate. One intense colour moment beats five. Secondary colours only
-  for meaning (status, categories, people), taken from the same scene.
-- Neutrals: pure white is the normal ground for product UI. Off-white, cream or bone is
-  a mood choice, not a default. Greys come from the scene or stay truly neutral.
-- Pairings to avoid: warm off-white with red, orange or terracotta (overused);
-  off-white with fluorescent; dark navy or charcoal with electric purple, lime or teal;
-  pure white with muted earth tones; a tinted warm ground with a high-chroma accent.
-- Text contrast is non-negotiable: readable at a glance. Use muted text sparingly.
-  Nothing under 12px, and for products used by older people nothing under 14px.
-- Put information on surfaces; do not box everything in cards.
-- Avoid dated tricks: heavy gradients, stacked shadows, glossy effects.
-- Clarity beats style for product screens. Style can lead for marketing and brand.
-- When asked for several directions, make them truly different in personality.
-- Realistic placeholder content (real-sounding names, values, dates). Fake data only.
-- Icons are SVG from one set; never emoji. Every icon in navigation or actions has a
-  visible text label.
+- Remove before you add. Fewer, better elements and real space around them, plus one
+  warm, human detail so it does not feel sterile.
+- Spacing has intent: tight inside a group, open around the main moment.
+- Build hierarchy from contrast in size and weight: a big, heavy headline beside small,
+  plain labels. Pull tracking in slightly on large type; leave small caps loose.
+- Know the goal. Product screens are judged on clarity; brand and marketing pages can
+  lead with personality. For a fun or bold brand, pick one or two playful moves (a
+  second accent, a hand-drawn mark, a sticker-like tilt, witty copy), never all of them.
+- Colour: one strong accent used in one or two places beats many. Extra colours only
+  carry meaning (status, categories, people) and come from the same setting.
+- Grounds: plain white suits most product UI. Cream, ivory and bone belong to specific
+  moods, not to "neutral". Greys come from the setting or stay truly neutral. Pure black
+  pairs with a vivid accent; otherwise tint dark grounds toward the mood.
+- Combinations that read as tired or muddy, so skip them unless asked: cream with
+  terracotta-family reds and oranges; cream with neon; navy or charcoal with electric
+  purple, lime or teal; plain white with dusty earth tones (give those a tinted ground);
+  a tinted ground with a very saturated accent (use white or black instead).
+- Legibility comes first. Muted and translucent text is for hierarchy, used sparingly;
+  check contrast twice below 16px. Nothing under 12px, and for older users nothing under 14px.
+- Let content sit on the page; not everything needs a card.
+- Skip dated effects: heavy gradients, layered shadows, gloss.
+- Several directions means several personalities, not one layout recoloured.
+- Placeholder content looks real (plausible names, numbers, dates) and is always fake.
+- Icons are SVG from one set, never emoji. Icons in navigation or actions get a visible label.
 
 ## 3. Markup rules
 
-- Tokens live in one `tokens.css` as CSS variables (light, plus dark under
-  `prefers-color-scheme` and `[data-theme]`). Shared pieces live in `base.css`.
-  Screens use `var(--token)`, never raw values, except one-off illustration colours.
+- Tokens live in one `tokens.css` as CSS variables, grouped by kind: `--color-*`,
+  `--font-*`, `--text-*` (sizes), `--leading-*`, `--tracking-*`, `--space-*`,
+  `--radius-*`, `--breakpoint-*`. Light by default, dark under `prefers-color-scheme`
+  and `[data-theme]`. Shared pieces live in `base.css`. Screens use `var(--token)`,
+  never raw values, except one-off illustration colours. Tints via
+  `color-mix(in srgb, var(--color-accent) 40%, transparent)`.
 - Layout with flex, gap and padding. Use grid where columns must align across rows.
-- Repeated rows (lists, nav, tables): fixed-width slots for icons and trailing actions
-  (`width` plus `flex-shrink: 0`) so elements form vertical lanes. Never rely on gap alone.
+- Repeated rows (lists, nav, tables): give icons and trailing actions a fixed slot
+  (`width` plus `flex-shrink: 0`), even when a row leaves it empty, so they line up in
+  columns. Gap alone drifts when content length varies.
 - Units: px for font sizes and line heights, em for letter spacing.
 - Real states in the markup: hover, pressed, focus-visible, disabled, loading, error,
   empty. Wire small interactions with plain JS so the prototype behaves.
@@ -67,21 +75,18 @@ quality is not the gap. Quality comes from the discipline below. Follow it every
 
 ## 4. Build in small pieces, review each piece
 
-Write one visual group at a time (a header, a card, a row, a button bar), then look
-at it. After every meaningful step, screenshot and check:
+Write one visual group at a time (a header, one row, a button bar), then look at it.
+After each one, screenshot and ask:
 
-- **Spacing:** uneven gaps, cramped groups, accidental empty areas. Clear rhythm?
-- **Typography:** too small, poor line height, weak heading/body/caption hierarchy.
-- **Contrast:** low-contrast text, elements melting into the background, flat colour use.
-- **Alignment:** shared lanes across repeated rows; icons and trailing actions line up.
-- **Fit:** nothing clipped, no sideways scroll, no text breaking mid-word.
-- **Repetition:** grid-like sameness; vary scale, weight or spacing for interest.
+- **Rhythm:** do the gaps feel chosen? Anything crowded, or empty by accident?
+- **Type:** is every size readable, and are heading, body and caption clearly distinct?
+- **Contrast:** does any text or control fade into its background? Is colour doing work?
+- **Lanes:** after three or more similar rows, do icons and trailing items line up?
+- **Fit:** anything cut off, scrolling sideways or breaking mid-word?
+- **Monotony:** if it looks like a uniform grid, change scale, weight or spacing somewhere.
 
-Write a one-line verdict per checkpoint, then make targeted fixes. Never throw the
-whole screen away to restart unless nothing else works.
-
-`<skill-dir>` is the folder this file lives in. First use only: run `npm install`
-there. The scripts use Playwright's Chromium if present, else the installed Chrome.
+Note a one-line verdict, then fix just what is wrong. Rebuilding the whole screen is a
+last resort; an overflow is a fix, not a restart.
 
 Screenshot a single page (2x, optional dark and focus):
 
