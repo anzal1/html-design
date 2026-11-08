@@ -15,6 +15,9 @@ not what makes their AI output good. The process is. Follow it every time.
   Never invent a colour, size or radius outside the kit; add a token and say so.
 - No kit: post a short brief in chat before writing any file. Wait for approval only if
   the user asked to approve it.
+  - **Register:** clarity (tools, dashboards, forms) or expressive (consumer apps,
+    brand, marketing, or any brief that says expressive, fun, playful or bold). Decide
+    this first; it changes the taste rules below.
   - **Moods considered:** 3 to 5 physical settings the product could live in, some
     expected and some surprising.
   - **Mood picked:** one that was not your first idea, with one sentence on why. First
@@ -56,8 +59,15 @@ not what makes their AI output good. The process is. Follow it every time.
 
 ## 2. Taste rules
 
-- Remove before you add. Fewer, better elements and real space around them, plus one
-  warm, human detail so it does not feel sterile.
+- Clarity register: remove before you add. Fewer, better elements and real space around
+  them, plus one warm, human detail so it does not feel sterile.
+- Expressive register: the playful style is the first choice, not an afterthought. Use
+  several of: a duo or trio of accents and tinted surfaces from one scene, tilted or
+  sticker-like pieces, hard offset shadows, hand-drawn marks (squiggles, circles, tape,
+  doodles), a wordmark or mascot with character, and witty copy. Keep one primary colour
+  anchoring the brand and keep saturation calm. Restraint here means every flourish fits
+  the world, not that the world is empty. A design that looks like a tidy wireframe has
+  failed an expressive brief.
 - Spacing has intent: tight inside a group, open around the main moment.
 - Build hierarchy from contrast in size and weight, Swiss editorial style: a big, heavy
   display line beside small, light or regular labels. Push the gap between display and
@@ -67,12 +77,11 @@ not what makes their AI output good. The process is. Follow it every time.
   over evenly weighted grids.
 - It should look like a designer with a strong point of view made it, not like parts
   pulled from a component library. Invest in hierarchy, spacing and contrast, not decoration.
-- Know the goal. Product screens are judged on clarity; brand and marketing pages can
-  lead with personality. For a fun or bold brand, pick one or two playful moves (a
-  second accent, a hand-drawn mark, a sticker-like tilt, witty copy), never all of them.
+- Know the goal. Clarity screens are judged on how fast they read; expressive ones on
+  whether people would screenshot them.
 - When a request is vague or open ("design something cool"), pick one small deliverable
   and execute it exceptionally well so it lands at first look.
-- Colour: one strong accent used in one or two places beats many. Extra colours only
+- Colour (clarity register): one strong accent used in one or two places beats many. Extra colours only
   carry meaning (status, categories, data series, people) and come from the same
   setting. A playful brand can use a duo or trio of accents, but keep one primary, keep
   overall saturation calm and spend less on other decoration.
@@ -89,6 +98,13 @@ not what makes their AI output good. The process is. Follow it every time.
   check contrast twice below 16px. Nothing under 12px, and for older users nothing under 14px.
 - Let content sit on the page; not everything needs a card.
 - Skip dated effects: heavy gradients, layered shadows, gloss.
+- Fill the frame on purpose. A layout must not end in a dead zone: balance column
+  heights, and anchor floating buttons to content or a clear bar.
+- One metaphor per screen (graph paper or ruled paper, not both). Ruled lines sit on the
+  text baseline: line-height equals rule spacing.
+- Dark mode re-tints every colour into the same world at night (paper becomes darker
+  stock, tape stays tape); it is never a plain inversion and never loses its warmth.
+- On phones, rows of chips or filters scroll sideways instead of wrapping one orphan.
 - Several directions means several personalities, not one layout recoloured.
 - Placeholder content looks real (plausible names, numbers, dates) and is always fake.
   Images are plain placeholders (solid fills, SVG shapes) unless the user asks for generated ones.
