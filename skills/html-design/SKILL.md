@@ -88,6 +88,9 @@ After each one, screenshot and ask:
 Note a one-line verdict, then fix just what is wrong. Rebuilding the whole screen is a
 last resort; an overflow is a fix, not a restart.
 
+`<skill-dir>` is the folder this file lives in. First use only: run `npm install`
+there. The scripts use Playwright's Chromium if present, else the installed Chrome.
+
 Screenshot a single page (2x, optional dark and focus):
 
 ```bash
