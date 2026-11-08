@@ -1,0 +1,29 @@
+# html-design
+
+An agent skill for designing app and web UI as plain HTML and CSS, at the quality you get from a canvas design tool.
+
+Canvas tools like Paper render HTML and CSS too. What makes their AI output look good is the process around it, not the canvas. This skill gives any coding agent that process, so you can design without a canvas subscription and keep everything as files you own.
+
+## What it makes the agent do
+
+1. Write a short brief first: mood, a palette taken from real objects, type scale, direction.
+2. Keep every colour, size and radius in one `tokens.css`, with light and dark themes.
+3. Build one visual group at a time, screenshot it, and fix spacing, type, contrast and alignment before moving on.
+4. Run a contact sheet at 8 widths from 375 to 2560, light and dark. It fails on sideways scroll, console errors and failed requests.
+5. Hand the approved prototype to builders as a reference, not code to paste.
+
+## Install
+
+```bash
+npx skills add anzal1/html-design
+```
+
+Or copy `skills/html-design` into your agent's skills folder (for Claude Code, `~/.claude/skills/`). Then run `npm install` inside it once. The screenshot scripts use Playwright's Chromium if you have it, otherwise your installed Chrome.
+
+## Use
+
+Ask your agent to design something: "design the settings screen for a budgeting app", "make three directions for a landing page", "build a small UI kit for this product". To build on an existing design system, point it at your tokens file and it will only use those values.
+
+## License
+
+MIT
