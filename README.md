@@ -6,9 +6,9 @@ Canvas tools like Paper render HTML and CSS too. What makes their AI output look
 
 ## What it makes the agent do
 
-1. Write a short brief first: mood, a palette taken from real objects, type scale, direction.
+1. Read the taste from your ask (words, references, brand, existing kit) and post a short brief. No house style.
 2. Keep every colour, size and radius in one `tokens.css`, with light and dark themes.
-3. Build one visual group at a time, screenshot it, and fix spacing, type, contrast and alignment before moving on.
+3. Build one visual group at a time, screenshot it, and check it against strict, evidence-based usability rules (WCAG 2.2 contrast and focus, target sizes, readable type, state never colour alone).
 4. Run a contact sheet at 8 widths from 375 to 2560, light and dark. It fails on sideways scroll, console errors and failed requests.
 5. Hand the approved prototype to builders as a reference, not code to paste.
 
@@ -26,7 +26,7 @@ Ask your agent to design something: "design the settings screen for a budgeting 
 
 ## Credit
 
-The brief format, the review checklist and several taste rules are adapted, in our own words, from the design guide that [Paper](https://paper.design) serves to agents through its MCP server. If you have Paper, use it; this is for working in plain files.
+The brief format and the review checklist are adapted, in our own words, from the design guide that [Paper](https://paper.design) serves to agents through its MCP server. If you have Paper, use it; this is for working in plain files.
 
 ## License
 
