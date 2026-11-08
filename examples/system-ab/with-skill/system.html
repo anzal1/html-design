@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meniscus Design System</title>
+<meta name="description" content="Tokens for Meniscus, a neumorphic water-based visual language.">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap top">
+  <a class="brand" href="section.html"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3C14 3 5 12.5 5 18a9 9 0 0 0 18 0C23 12.5 14 3 14 3Z" fill="currentColor"/><path d="M9.5 18.5a4.5 4.5 0 0 0 4 4.4" stroke="var(--color-ground)" stroke-width="2" stroke-linecap="round"/></svg>Meniscus</a>
+  <nav class="nav" aria-label="Design system">
+    <a href="system.html" aria-current="page">Tokens</a>
+    <a href="components.html">Components</a>
+    <a href="section.html">Section</a>
+    <button class="btn btn--secondary" type="button" data-theme-toggle aria-pressed="false"><span>Light</span></button>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+  <div class="hero-doc">
+    <p class="eyebrow">Design system 1.0</p>
+    <h1 class="title">Moulded from one glaze.</h1>
+    <p class="lede">Every raised and pressed shape in Meniscus is cut from a single ground colour. Shadows carry depth. Edges, labels and a double focus ring carry meaning, so nothing depends on a soft shadow alone.</p>
+  </div>
+
+  <section class="sect" aria-labelledby="h-colour">
+    <h2 id="h-colour">Colour</h2>
+    <p class="note">Ten roles, light and dark. The page shows the values for the theme you are viewing, and the contrast table below is computed live from them.</p>
+    <div class="body grid" id="swatches"></div>
+    <div class="body">
+      <div class="tablewrap" tabindex="0" role="region" aria-label="Contrast pairs, scrollable">
+        <table>
+          <thead><tr><th scope="col">Pair</th><th scope="col">Used for</th><th scope="col">Ratio</th><th scope="col">Needs</th></tr></thead>
+          <tbody id="contrast"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-type">
+    <h2 id="h-type">Type</h2>
+    <p class="note">One rounded system family, no network fonts. Two weights only: 400 and 800. Large heavy numerals beside small regular labels.</p>
+    <div class="body">
+      <div class="spec"><span class="mono">--text-display</span><span style="font-size:var(--text-display);font-weight:var(--weight-heavy);line-height:var(--leading-tight);letter-spacing:var(--tracking-tight)">2,150</span></div>
+      <div class="spec"><span class="mono">--text-2xl 40</span><span style="font-size:var(--text-2xl);font-weight:var(--weight-heavy);letter-spacing:var(--tracking-tight)">Daily goal reached</span></div>
+      <div class="spec"><span class="mono">--text-xl 28</span><span style="font-size:var(--text-xl);font-weight:var(--weight-heavy)">Morning, 3 sips behind</span></div>
+      <div class="spec"><span class="mono">--text-lg 20</span><span style="font-size:var(--text-lg)">Drink 250 ml before your next meeting.</span></div>
+      <div class="spec"><span class="mono">--text-base 16</span><span>Body text keeps a 1.55 line height so paragraphs stay easy to read.</span></div>
+      <div class="spec"><span class="mono">--text-sm 14</span><span style="font-size:var(--text-sm)">Helper text, table cells and secondary labels.</span></div>
+      <div class="spec"><span class="mono">--text-xs 13 label</span><span class="eyebrow">Small caps label, loose tracking</span></div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-space">
+    <h2 id="h-space">Space and radius</h2>
+    <p class="note">A 4px base. Tight inside a group, open around the main moment. Targets are never under 48px.</p>
+    <div class="body cols-2">
+      <div id="spaces"></div>
+      <div class="stack" style="width:100%">
+        <div class="grid" style="width:100%">
+          <div class="tile card--flat" style="border:var(--edge);border-radius:var(--radius-sm)"><b>sm 10</b><span class="mono">--radius-sm</span></div>
+          <div class="tile card--flat" style="border:var(--edge);border-radius:var(--radius-md)"><b>md 16</b><span class="mono">--radius-md</span></div>
+          <div class="tile card--flat" style="border:var(--edge);border-radius:var(--radius-lg)"><b>lg 28</b><span class="mono">--radius-lg</span></div>
+          <div class="tile card--flat" style="border:var(--edge);border-radius:var(--radius-pill)"><b>pill</b><span class="mono">--radius-pill</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-elev">
+    <h2 id="h-elev">Elevation</h2>
+    <p class="note">Three raised levels, two inset levels. Every interactive surface also gets a 1px edge line (3:1 against the ground), because a shadow pair on its own measures about 1.2:1 and fails.</p>
+    <div class="body grid">
+      <div class="tile" style="box-shadow:var(--shadow-raised-1);border:var(--edge)"><b>Raised 1</b><span class="mono">buttons, chips</span></div>
+      <div class="tile" style="box-shadow:var(--shadow-raised-2);border:var(--edge)"><b>Raised 2</b><span class="mono">cards, hover</span></div>
+      <div class="tile" style="box-shadow:var(--shadow-raised-3);border:var(--edge)"><b>Raised 3</b><span class="mono">lifted card</span></div>
+      <div class="tile" style="box-shadow:var(--shadow-inset-1);border:var(--edge)"><b>Inset 1</b><span class="mono">tracks, inputs, pressed</span></div>
+      <div class="tile" style="box-shadow:var(--shadow-inset-2);border:var(--edge)"><b>Inset 2</b><span class="mono">wells, gauges</span></div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-access">
+    <h2 id="h-access">Making neumorphism accessible</h2>
+    <p class="note">The usual failures, and the token that fixes each.</p>
+    <div class="body grid grid--wide">
+      <div class="card"><h3 class="card__title">Faint shapes</h3><p class="card__body"><code>--color-edge</code> draws a 1px outline on every control. 3:1 or better in both themes.</p></div>
+      <div class="card"><h3 class="card__title">Invisible focus</h3><p class="card__body"><code>--focus-ring</code> is a ground-coloured gap plus a 3px ring in <code>--color-focus</code>. It reads on raised, inset and accent surfaces.</p></div>
+      <div class="card"><h3 class="card__title">State by shadow only</h3><p class="card__body">Selected, on and error each add a second signal: a tick, a text label, an icon or a colour fill.</p></div>
+      <div class="card"><h3 class="card__title">Disabled looks normal</h3><p class="card__body">Disabled controls drop to <code>--opacity-disabled</code>, lose their shadow and get a dashed edge.</p></div>
+    </div>
+  </section>
+
+  <section class="sect" aria-labelledby="h-motion">
+    <h2 id="h-motion">Motion</h2>
+    <p class="note">Short, ease-out, no bounce. Hover or focus a block to see its duration. With reduced motion on, durations collapse to zero and the water stops rippling.</p>
+    <div class="body grid">
+      <button class="card card--interactive" type="button" style="transition-duration:var(--motion-fast);text-align:left;font:inherit"><b>Fast 120ms</b><span class="mono">press, tap feedback</span></button>
+      <button class="card card--interactive" type="button" style="transition-duration:var(--motion-base);text-align:left;font:inherit"><b>Base 220ms</b><span class="mono">hover, toggle, shadows</span></button>
+      <button class="card card--interactive" type="button" style="transition-duration:var(--motion-slow);text-align:left;font:inherit"><b>Slow 600ms</b><span class="mono">water level change</span></button>
+      <div class="card card--flat" style="border:var(--edge)"><b>Wave 7s</b><span class="mono">--motion-wave, loop</span></div>
+    </div>
+  </section>
+  <p class="foot">Meniscus is a fictional product. All data on these pages is placeholder.</p>
+</main>
+
+<script src="app.js"></script>
+<script>
+(function(){
+  var cs = function(){ return getComputedStyle(document.documentElement); };
+  var roles = [["ground","Surface for everything"],["shadow-dark","Lower-right shadow"],["shadow-light","Upper-left highlight"],["edge","1px control outline"],["ink","Primary text"],["muted","Secondary text"],["accent","Actions, selection"],["water","Water fill"],["error","Error, low level"],["focus","Focus ring"]];
+  function hex(v){ v=v.trim(); if(v[0]==="#") return v; var m=v.match(/\d+/g); return "#"+m.slice(0,3).map(function(n){return (+n).toString(16).padStart(2,"0")}).join(""); }
+  function lum(h){ var c=[1,3,5].map(function(i){var x=parseInt(h.substr(i,2),16)/255; return x<=0.03928?x/12.92:Math.pow((x+0.055)/1.055,2.4)}); return 0.2126*c[0]+0.7152*c[1]+0.0722*c[2]; }
+  function ratio(a,b){ var x=lum(a),y=lum(b); return (Math.max(x,y)+0.05)/(Math.min(x,y)+0.05); }
+  function render(){
+    var s=cs(), val=function(n){return hex(s.getPropertyValue("--color-"+n))};
+    document.getElementById("swatches").innerHTML = roles.map(function(r){ return '<div class="swatch"><div class="chip" style="background:var(--color-'+r[0]+')"></div><b>'+r[0]+'</b><span class="mono">--color-'+r[0]+' '+val(r[0])+'</span><span>'+r[1]+'</span></div>'; }).join("");
+    var pairs=[["ink","ground","Body and headings",4.5],["muted","ground","Secondary text",4.5],["accent","ground","Links, secondary button text",4.5],["accent-ink","accent","Primary button label",4.5],["error","ground","Error text",4.5],["edge","ground","Control outlines",3],["focus","ground","Focus ring",3],["water","ground","Gauge water against basin",3]];
+    document.getElementById("contrast").innerHTML = pairs.map(function(p){ var r=ratio(val(p[0]),val(p[1])); return '<tr><td><span class="mono">'+p[0]+' on '+p[1]+'</span></td><td>'+p[2]+'</td><td class="ratio"><i>'+r.toFixed(1)+':1</i></td><td>'+p[3]+':1 '+(r>=p[3]?"pass":"FAIL")+'</td></tr>'; }).join("");
+  }
+  render(); document.addEventListener("themechange", render);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", render);
+  var sp=[["1",4],["2",8],["3",12],["4",16],["5",24],["6",32],["7",48],["8",64],["9",96]];
+  document.getElementById("spaces").innerHTML = sp.map(function(x){ return '<div class="spec" style="padding-block:var(--space-2)"><span class="mono" style="min-width:130px">--space-'+x[0]+' '+x[1]+'</span><span class="bar" style="width:var(--space-'+x[0]+')"></span></div>'; }).join("");
+})();
+</script>
+</body>
+</html>

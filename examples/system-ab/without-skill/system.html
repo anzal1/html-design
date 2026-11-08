@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+<title>Brook Tokens</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="components.css"><link rel="stylesheet" href="page.css"><script src="app.js"></script></head><body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap"><a class="brand" href="section.html"><i aria-hidden="true"></i>Brook</a>
+<nav class="nav" aria-label="Design system"><a class="btn btn--sm" href="system.html" aria-current="page">Tokens</a><a class="btn btn--sm" href="components.html" >Components</a><a class="btn btn--sm" href="section.html" >Section</a><button class="btn btn--sm" id="theme-toggle" type="button">Dark mode</button></nav></div></header>
+<main id="main"><div class="wrap">
+<p class="card__eyebrow">Brook design system, part 1 of 3</p>
+<h1>Soft surfaces, clear water.</h1>
+<p class="lede">Brook is a fictional hydration app. Its language is neumorphic: one soft surface, light from the top left, controls pressed out of it or into it. The usual weakness of that style is low contrast, so every token below has a job in fixing it.</p>
+
+<section aria-labelledby="rules"><h2 id="rules">Accessibility rules baked in</h2>
+<div class="grid">
+<div class="card"><h3 class="card__title">Shadows never carry meaning alone</h3><p class="card__meta">Every control also has a 1.5px <code>--edge</code> border at 3:1 or better against the surface. Shadows add feel, not information.</p></div>
+<div class="card"><h3 class="card__title">Focus is a two-tone ring</h3><p class="card__meta"><code>--focus-ring</code> is a 2px halo plus a 3px ring (deep blue in light, yellow in dark). It reads on raised, sunk and filled surfaces.</p></div>
+<div class="card"><h3 class="card__title">State is also shape</h3><p class="card__meta">Selected segments get an accent underline, toggles get a tick, errors get an icon and text, disabled gets dashed borders.</p></div>
+<div class="card"><h3 class="card__title">44px targets, reduced motion</h3><p class="card__meta"><code>--tap</code> is 2.75rem. Water waves and loaders stop under <code>prefers-reduced-motion</code>.</p></div>
+</div></section>
+
+<section aria-labelledby="colour"><h2 id="colour">Colour</h2><p class="note">Switch theme with the button above to see both sets. Ratios are against <code>--surface</code> unless noted.</p>
+<div class="grid grid--sm">
+<div class="sw"><div class="sw__chip" style="background:var(--surface)"></div><b>--surface</b><span>Base. Light #e4ecf2 / dark #17232d</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--surface-sunk)"></div><b>--surface-sunk</b><span>Wells and tracks</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--text)"></div><b>--text</b><span>Body. 13.2:1 light, 13.5:1 dark</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--text-2)"></div><b>--text-2</b><span>Secondary. 6.9:1 / 9:1</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--text-3)"></div><b>--text-3</b><span>Placeholder, meta. 4.5:1 / 6:1</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--edge)"></div><b>--edge</b><span>Control boundary. 3.6:1 / 4.6:1</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--accent)"></div><b>--accent</b><span>Primary fill. 6.0:1 with ink</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--water-a)"></div><b>--water-a</b><span>Water top</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--water-b)"></div><b>--water-b</b><span>Water deep</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--danger)"></div><b>--danger</b><span>Error. 5.1:1 / 6.4:1</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--ok)"></div><b>--ok</b><span>Success. 6.1:1 / 9:1</span></div>
+<div class="sw"><div class="sw__chip" style="background:var(--focus)"></div><b>--focus</b><span>Focus ring. 7:1 / 12:1</span></div>
+</div></section>
+
+<section aria-labelledby="type"><h2 id="type">Type</h2><p class="note">System rounded stack (<code>ui-rounded</code>, SF Pro Rounded, then system-ui). No web font download. Sizes in rem so user zoom works; the top two scale fluidly.</p>
+<div class="card"><div class="scroll"><table class="tbl"><thead><tr><th scope="col">Token</th><th scope="col">Value</th><th scope="col">Sample</th></tr></thead><tbody>
+<tr><td><code>--fs-2xl</code></td><td>2.25 to 4rem</td><td style="font-size:var(--fs-2xl);font-weight:var(--fw-bold);line-height:1">Hydrate</td></tr>
+<tr><td><code>--fs-xl</code></td><td>1.75 to 2.5rem</td><td style="font-size:var(--fs-xl);font-weight:var(--fw-bold)">1,450 ml</td></tr>
+<tr><td><code>--fs-lg</code></td><td>1.375rem</td><td style="font-size:var(--fs-lg);font-weight:var(--fw-bold)">Today's intake</td></tr>
+<tr><td><code>--fs-md</code></td><td>1.0625rem</td><td>Body copy for reading</td></tr>
+<tr><td><code>--fs-sm</code></td><td>0.9375rem</td><td style="font-size:var(--fs-sm)">Labels and controls</td></tr>
+<tr><td><code>--fs-xs</code></td><td>0.8125rem</td><td style="font-size:var(--fs-xs)">Hints, eyebrow</td></tr></tbody></table></div>
+<p class="card__meta">Weights: regular 450, medium 600, bold 750. Line height: 1.15 tight, 1.55 body.</p></div></section>
+
+<section aria-labelledby="space"><h2 id="space">Spacing and radius</h2><p class="note">4px base. Radii go from tight inputs to full pills; large radii suit the soft surface.</p>
+<div class="spec"><div class="card"><h3 class="card__title">Spacing</h3>
+<div class="sp-row"><code style="width:5rem">--sp-1</code><span class="bar" style="width:var(--sp-1)"></span><span>4px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-2</code><span class="bar" style="width:var(--sp-2)"></span><span>8px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-3</code><span class="bar" style="width:var(--sp-3)"></span><span>12px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-4</code><span class="bar" style="width:var(--sp-4)"></span><span>16px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-5</code><span class="bar" style="width:var(--sp-5)"></span><span>24px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-6</code><span class="bar" style="width:var(--sp-6)"></span><span>32px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-7</code><span class="bar" style="width:var(--sp-7)"></span><span>48px</span></div>
+<div class="sp-row"><code style="width:5rem">--sp-8</code><span class="bar" style="width:var(--sp-8)"></span><span>72px</span></div>
+</div><div class="card"><h3 class="card__title">Radius</h3><div class="demo">
+<div style="text-align:center"><div class="card--inset" style="width:4.5rem;height:4.5rem;border-radius:var(--r-sm);background:var(--surface-sunk);box-shadow:var(--inset-1);border:1.5px solid var(--edge)"></div><code>r-sm</code><br><small class="card__meta">10</small></div>
+<div style="text-align:center"><div class="card--inset" style="width:4.5rem;height:4.5rem;border-radius:var(--r-md);background:var(--surface-sunk);box-shadow:var(--inset-1);border:1.5px solid var(--edge)"></div><code>r-md</code><br><small class="card__meta">16</small></div>
+<div style="text-align:center"><div class="card--inset" style="width:4.5rem;height:4.5rem;border-radius:var(--r-lg);background:var(--surface-sunk);box-shadow:var(--inset-1);border:1.5px solid var(--edge)"></div><code>r-lg</code><br><small class="card__meta">24</small></div>
+<div style="text-align:center"><div class="card--inset" style="width:4.5rem;height:4.5rem;border-radius:var(--r-xl);background:var(--surface-sunk);box-shadow:var(--inset-1);border:1.5px solid var(--edge)"></div><code>r-xl</code><br><small class="card__meta">36</small></div>
+<div style="text-align:center"><div class="card--inset" style="width:4.5rem;height:4.5rem;border-radius:var(--r-pill);background:var(--surface-sunk);box-shadow:var(--inset-1);border:1.5px solid var(--edge)"></div><code>r-pill</code><br><small class="card__meta">full</small></div>
+</div></div></div></section>
+
+<section aria-labelledby="elev"><h2 id="elev">Elevation</h2><p class="note">Raised means actionable or a container. Sunk means input, track or well. Pressed buttons flip from raised to inset. Dark mode swaps the highlight to a lighter navy rather than white.</p>
+<div class="grid">
+<div class="elev-demo" style="box-shadow:var(--elev-1)">elev-1: buttons</div>
+<div class="elev-demo" style="box-shadow:var(--elev-2)">elev-2: cards</div>
+<div class="elev-demo" style="box-shadow:var(--elev-3)">elev-3: hero, gauge</div>
+<div class="elev-demo" style="box-shadow:var(--inset-1);background:var(--surface-sunk);border-color:var(--edge)">inset-1: pressed, track</div>
+<div class="elev-demo" style="box-shadow:var(--inset-2);background:var(--surface-sunk);border-color:var(--edge)">inset-2: wells</div>
+<div class="elev-demo" style="box-shadow:var(--inset-1),var(--focus-ring);background:var(--surface-sunk);border-color:var(--edge)">focus-ring</div>
+</div></section>
+
+<section aria-labelledby="motion"><h2 id="motion">Motion</h2><p class="note">Short and soft, like a surface giving under a finger. Water is the only thing that moves on its own, and it stops for reduced motion.</p>
+<div class="card"><div class="scroll"><table class="tbl"><thead><tr><th scope="col">Token</th><th scope="col">Value</th><th scope="col">Use</th></tr></thead><tbody>
+<tr><td><code>--dur-fast</code></td><td>120ms</td><td>Press, thumb grow</td></tr>
+<tr><td><code>--dur-base</code></td><td>220ms</td><td>Hover, toggle, theme</td></tr>
+<tr><td><code>--dur-slow</code></td><td>600ms</td><td>Water level change</td></tr>
+<tr><td><code>--dur-wave</code></td><td>7s</td><td>Idle surface wave</td></tr>
+<tr><td><code>--ease-out</code></td><td>.22,.8,.3,1</td><td>Entering and settling</td></tr>
+<tr><td><code>--ease-inout</code></td><td>.65,0,.35,1</td><td>Looping pulses</td></tr></tbody></table></div></div></section>
+</div></main>
+<footer><div class="wrap">Brook is a fictional product. Next: <a href="components.html">components</a>, then the <a href="section.html">section</a>.</div></footer>
+</body></html>

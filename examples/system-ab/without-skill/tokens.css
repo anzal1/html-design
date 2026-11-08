@@ -1,0 +1,82 @@
+/* Brook design system tokens. Every value used by components.css and the pages lives here. */
+:root {
+  /* colour: light (default) */
+  --surface: #e4ecf2;
+  --surface-sunk: #dae4ec;
+  --sh-light: #ffffff;
+  --sh-dark: #a9bccb;
+  --text: #0c2535;          /* 13.2:1 on surface */
+  --text-2: #3b5568;        /* 6.9:1 on surface */
+  --text-3: #5a7486;        /* 4.5:1 on surface, large/meta only */
+  --edge: #5d7b90;          /* 3.6:1 on surface: boundaries of controls */
+  --edge-soft: rgba(93,123,144,.28);
+  --accent: #0a5fa6;        /* 6.0:1 vs white */
+  --accent-hi: #1a78c7;
+  --accent-ink: #ffffff;
+  --accent-text: #0a5fa6;   /* accent as text on surface 5.2:1 */
+  --water-a: #4fb6ee;
+  --water-b: #1d86cf;
+  --focus: #0b3ea8;
+  --focus-halo: #ffffff;
+  --danger: #b3261e;        /* 5.1:1 on surface */
+  --ok: #17673f;
+  --disabled-text: #6d8697;
+  --glass: rgba(255,255,255,.35);
+
+  /* type */
+  --font: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --fs-xs: .8125rem; --fs-sm: .9375rem; --fs-md: 1.0625rem; --fs-lg: 1.375rem;
+  --fs-xl: clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);
+  --fs-2xl: clamp(2.25rem, 1.4rem + 3.6vw, 4rem);
+  --fw-regular: 450; --fw-medium: 600; --fw-bold: 750;
+  --lh-tight: 1.15; --lh-body: 1.55;
+
+  /* spacing (4px base) */
+  --sp-1: .25rem; --sp-2: .5rem; --sp-3: .75rem; --sp-4: 1rem; --sp-5: 1.5rem;
+  --sp-6: 2rem; --sp-7: 3rem; --sp-8: 4.5rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --tap: 2.75rem; /* 44px minimum target */
+
+  /* radius */
+  --r-sm: .625rem; --r-md: 1rem; --r-lg: 1.5rem; --r-xl: 2.25rem; --r-pill: 999px;
+
+  /* elevation */
+  --elev-1: 4px 4px 10px var(--sh-dark), -4px -4px 10px var(--sh-light);
+  --elev-2: 8px 8px 18px var(--sh-dark), -8px -8px 18px var(--sh-light);
+  --elev-3: 14px 14px 30px var(--sh-dark), -14px -14px 30px var(--sh-light);
+  --inset-1: inset 3px 3px 7px var(--sh-dark), inset -3px -3px 7px var(--sh-light);
+  --inset-2: inset 6px 6px 13px var(--sh-dark), inset -6px -6px 13px var(--sh-light);
+
+  /* focus: two-tone ring so it holds on any surface */
+  --focus-ring: 0 0 0 2px var(--focus-halo), 0 0 0 5px var(--focus);
+
+  /* motion */
+  --ease-out: cubic-bezier(.22,.8,.3,1);
+  --ease-inout: cubic-bezier(.65,0,.35,1);
+  --dur-fast: 120ms; --dur-base: 220ms; --dur-slow: 600ms; --dur-wave: 7s;
+}
+:root[data-theme="dark"] {
+  --surface: #17232d; --surface-sunk: #121c24;
+  --sh-light: #243746; --sh-dark: #090f14;
+  --text: #e8f2f9; --text-2: #b4c8d6; --text-3: #92a9ba;
+  --edge: #7c9bb0; --edge-soft: rgba(124,155,176,.3);
+  --accent: #6cc4ff; --accent-hi: #8fd3ff; --accent-ink: #04202f; --accent-text: #7fcbff;
+  --water-a: #5cc4ff; --water-b: #1f7fc4;
+  --focus: #ffd84d; --focus-halo: #0b1218;
+  --danger: #ff8a80; --ok: #6fdc9f; --disabled-text: #6f8797;
+  --glass: rgba(255,255,255,.08);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface: #17232d; --surface-sunk: #121c24;
+    --sh-light: #243746; --sh-dark: #090f14;
+    --text: #e8f2f9; --text-2: #b4c8d6; --text-3: #92a9ba;
+    --edge: #7c9bb0; --edge-soft: rgba(124,155,176,.3);
+    --accent: #6cc4ff; --accent-hi: #8fd3ff; --accent-ink: #04202f; --accent-text: #7fcbff;
+    --water-a: #5cc4ff; --water-b: #1f7fc4;
+    --focus: #ffd84d; --focus-halo: #0b1218;
+    --danger: #ff8a80; --ok: #6fdc9f; --disabled-text: #6f8797;
+    --glass: rgba(255,255,255,.08);
+  }
+}

@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+<title>Brook Today</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="components.css"><link rel="stylesheet" href="page.css">
+<style>
+.hero{display:grid;gap:var(--sp-6);grid-template-columns:1fr;align-items:center}
+@media(min-width:56rem){.hero{grid-template-columns:1.1fr .9fr}}
+.hero__panel{display:grid;gap:var(--sp-5)}
+.stats{display:grid;gap:var(--sp-5);grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));margin-top:var(--sp-6)}
+.row{display:flex;gap:var(--sp-3);flex-wrap:wrap;align-items:end}
+.row .field{flex:1 1 9rem}
+.set{display:grid;gap:var(--sp-4)}
+#status{min-height:1.5rem;color:var(--text-2);font-size:var(--fs-sm)}
+</style>
+<script src="app.js"></script></head><body>
+<a class="skip" href="#main">Skip to content</a><header class="top"><div class="wrap"><a class="brand" href="section.html"><i aria-hidden="true"></i>Brook</a><nav class="nav" aria-label="Design system"><a class="btn btn--sm" href="system.html" >Tokens</a><a class="btn btn--sm" href="components.html" >Components</a><a class="btn btn--sm" href="section.html" aria-current="page">Section</a><button class="btn btn--sm" id="theme-toggle" type="button">Dark mode</button></nav></div></header>
+<main id="main"><div class="wrap">
+<div class="hero">
+ <div class="hero__panel">
+  <p class="card__eyebrow">Tuesday, 8 November</p>
+  <h1>You are <span id="pct-text">72%</span> of the way to your goal.</h1>
+  <p class="lede">Log a drink and watch the tank rise. Brook will nudge you gently, only when you ask it to.</p>
+  <fieldset class="seg" style="border:1.5px solid var(--edge);justify-self:start"><legend class="sr-only">Cup size in millilitres</legend>
+   <label class="seg__opt"><input type="radio" name="cup" value="150"><span>150 ml</span></label>
+   <label class="seg__opt"><input type="radio" name="cup" value="250" checked><span>250 ml</span></label>
+   <label class="seg__opt"><input type="radio" name="cup" value="500"><span>500 ml</span></label></fieldset>
+  <div class="row"><button class="btn btn--primary" id="log" type="button">Log a drink</button><button class="btn" id="undo" type="button">Undo last</button></div>
+  <p id="status" role="status" aria-live="polite"></p>
+ </div>
+ <div class="card" style="box-shadow:var(--elev-3)"><span class="card__eyebrow">Today's intake</span>
+  <div class="gauge" id="gauge" role="meter" aria-label="Today's intake" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="1440" aria-valuetext="1,440 of 2,000 millilitres" style="--level:72"><div class="gauge__well"><div class="gauge__water"></div></div><div class="gauge__read"><span class="gauge__value" id="gv">72%</span></div></div>
+  <p class="card__meta" style="text-align:center"><b id="ml" style="color:var(--text)">1,440</b> of <span id="goal-text">2,000</span> ml</p></div>
+</div>
+
+<div class="stats">
+ <div class="card"><span class="card__eyebrow">Streak</span><p class="card__stat">12 days</p><p class="card__meta">Your longest is 19.</p></div>
+ <div class="card"><span class="card__eyebrow">Last drink</span><p class="card__stat" id="last">250 ml</p><p class="card__meta">Logged just now</p></div>
+ <button class="card card--interactive" type="button"><span class="card__eyebrow">This week</span><span class="card__title">Weekly report</span><span class="card__meta">Open the 7-day view</span></button>
+</div>
+
+<section aria-labelledby="set-h" style="margin-top:var(--sp-7)"><h2 id="set-h">Goal and reminders</h2>
+<div class="grid" style="margin-top:var(--sp-5)">
+ <div class="card set">
+  <div class="field"><label class="field__label" for="goal">Daily goal <output id="goalo">2,000 ml</output></label><input class="slider" id="goal" type="range" min="1000" max="4000" step="100" value="2000"></div>
+  <label class="toggle"><input type="checkbox" role="switch" id="rem" checked><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Gentle reminders</span></label>
+ </div>
+ <div class="card set">
+  <div class="field"><label class="field__label" for="custom">Custom amount</label><input class="input" id="custom" inputmode="numeric" placeholder="e.g. 330" aria-describedby="chint"><span class="field__hint" id="chint">Millilitres, up to 2000.</span></div>
+  <button class="btn" id="addc" type="button">Add custom amount</button>
+ </div>
+</div></section>
+</div></main>
+<footer><div class="wrap">Built only from the Brook <a href="components.html">components</a>. Fictional product.</div></footer>
+<script>
+(function(){
+  var total=1440,goal=2000,hist=[250];
+  var g=document.getElementById('gauge');
+  function f(n){return n.toLocaleString()}
+  function render(){
+    var p=Math.min(100,Math.round(total/goal*100));
+    g.style.setProperty('--level',p);
+    g.setAttribute('aria-valuenow',total);g.setAttribute('aria-valuemax',goal);
+    g.setAttribute('aria-valuetext',f(total)+' of '+f(goal)+' millilitres'+(p<25?', low':''));
+    g.classList.toggle('gauge--low',p<25);
+    document.getElementById('gv').textContent=p+'%';
+    document.getElementById('pct-text').textContent=p+'%';
+    document.getElementById('ml').textContent=f(total);
+    document.getElementById('goal-text').textContent=f(goal);
+    document.getElementById('last').textContent=hist.length?hist[hist.length-1]+' ml':'None yet';
+  }
+  function add(n){total+=n;hist.push(n);render();say('Added '+n+' ml. Total '+f(total)+' ml.')}
+  function say(t){document.getElementById('status').textContent=t}
+  document.getElementById('log').onclick=function(){add(+document.querySelector('input[name=cup]:checked').value)};
+  document.getElementById('undo').onclick=function(){if(!hist.length)return say('Nothing to undo.');var n=hist.pop();total=Math.max(0,total-n);render();say('Removed '+n+' ml.')};
+  document.getElementById('goal').addEventListener('input',function(e){goal=+e.target.value;document.getElementById('goalo').textContent=f(goal)+' ml';render()});
+  document.getElementById('goal').addEventListener('input',function(e){var s=e.target;s.style.setProperty('--p',(s.value-s.min)/(s.max-s.min)*100+'%')});
+  document.getElementById('goal').dispatchEvent(new Event('input'));
+  document.getElementById('addc').onclick=function(){
+    var i=document.getElementById('custom'),v=parseInt(i.value,10),h=document.getElementById('chint');
+    if(!(v>0&&v<=2000)){i.setAttribute('aria-invalid','true');h.className='field__error';h.textContent='Enter a number from 1 to 2000.';i.focus();return}
+    i.removeAttribute('aria-invalid');h.className='field__hint';h.textContent='Millilitres, up to 2000.';i.value='';add(v)};
+  render();
+})();
+</script>
+</body></html>

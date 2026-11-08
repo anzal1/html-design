@@ -100,7 +100,17 @@ not what makes their AI output good. The process is. Follow it every time.
 - Legibility comes first. Muted and translucent text is for hierarchy, used sparingly;
   check contrast twice below 16px. Nothing under 12px, and for older users nothing under 14px.
 - Let content sit on the page; not everything needs a card.
-- Skip dated effects: heavy gradients, layered shadows, gloss.
+- Skip dated effects (heavy gradients, layered shadows, gloss) unless the brief asks
+  for a style built on them.
+- A style named in the brief (neumorphic, glassmorphic, brutalist, skeuomorphic, Y2K,
+  isometric) beats every default taste rule here. Execute it fully and convincingly:
+  neumorphism needs real paired light and dark shadows from one light source, raised
+  versus sunk you can read at a glance, and pressed states that visibly invert;
+  glassmorphism needs real blur and layering. Then solve accessibility inside the
+  style (edges, focus rings, second state signals) without flattening it. A named
+  style rendered timidly has failed the brief.
+- A demo section should feel like a real page: enough content to show the system
+  working together, not one sparse row.
 - Fill the frame on purpose. A layout must not end in a dead zone: balance column
   heights, and anchor floating buttons to content or a clear bar.
 - One metaphor per screen (graph paper or ruled paper, not both). Ruled lines sit on the

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meniscus Today</title>
+<meta name="description" content="A Meniscus dashboard panel built only from the system components.">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="wrap top">
+  <a class="brand" href="section.html"><svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M14 3C14 3 5 12.5 5 18a9 9 0 0 0 18 0C23 12.5 14 3 14 3Z" fill="currentColor"/><path d="M9.5 18.5a4.5 4.5 0 0 0 4 4.4" stroke="var(--color-ground)" stroke-width="2" stroke-linecap="round"/></svg>Meniscus</a>
+  <nav class="nav" aria-label="Design system">
+    <a href="system.html">Tokens</a>
+    <a href="components.html">Components</a>
+    <a href="section.html" aria-current="page">Section</a>
+    <button class="btn btn--secondary" type="button" data-theme-toggle aria-pressed="false"><span>Light</span></button>
+  </nav>
+</header>
+
+<main id="main" class="wrap">
+<style>
+.today { display: grid; gap: var(--space-6); padding-block: var(--space-6) var(--space-7); align-items: center; }
+@media (min-width: 900px) { .today { grid-template-columns: 1.25fr 1fr; gap: var(--space-8); } }
+.today__num { font-size: var(--text-display); font-weight: var(--weight-heavy); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); font-variant-numeric: tabular-nums; margin-top: var(--space-3); }
+.today__num small { font-size: var(--text-xl); color: var(--color-muted); font-weight: var(--weight-regular); letter-spacing: 0; }
+.today__actions { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; margin-top: var(--space-6); }
+.today__cup { margin-top: var(--space-5); display: flex; flex-direction: column; gap: var(--space-2); }
+.today__basin { display: flex; justify-content: center; }
+.today__basin .card { width: 100%; max-width: 420px; flex-direction: row; align-items: center; gap: var(--space-5); padding: var(--space-6); }
+.today__basin .gauge { flex: 0 0 150px; width: 150px; }
+.settings { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); padding-bottom: var(--space-7); }
+</style>
+<div class="today">
+  <div>
+    <p class="eyebrow">Tuesday, 8 Nov, 2:40 pm</p>
+    <h1 class="sr">Today</h1>
+    <p class="today__num" id="num" aria-live="polite">1,320<small> ml</small></p>
+    <p class="lede" id="msg">You are 880 ml from today's goal. One cup now keeps you on pace until dinner.</p>
+    <div class="today__actions">
+      <button class="btn btn--primary" type="button" id="add"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 4v12M4 10h12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg><span class="t">Add 250 ml</span></button>
+      <button class="btn btn--secondary" type="button" id="undo"><span class="t">Undo last sip</span></button>
+    </div>
+    <div class="today__cup">
+      <span class="field__label" id="cup-l">Cup size</span>
+      <fieldset class="seg" aria-labelledby="cup-l">
+        <legend class="sr">Cup size</legend>
+        <label class="seg__opt"><input type="radio" name="cup" value="150"><span>150 ml</span></label>
+        <label class="seg__opt"><input type="radio" name="cup" value="250" checked><span>250 ml</span></label>
+        <label class="seg__opt"><input type="radio" name="cup" value="500"><span>500 ml</span></label>
+      </fieldset>
+    </div>
+  </div>
+  <div class="today__basin">
+    <div class="card">
+      <div class="gauge" id="gauge" role="meter" aria-label="Water drunk today" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60" style="--level:60"><span class="gauge__ticks" aria-hidden="true"></span><div class="gauge__water"></div></div>
+      <div class="gauge-read"><span class="gauge-read__num" id="pct">60%</span><span class="gauge-read__tag" id="tag">On pace</span><span class="field__hint" style="margin-top:var(--space-2)">of <span id="goalt">2,200</span> ml goal</span></div>
+    </div>
+  </div>
+</div>
+<div class="settings">
+  <div class="card"><h2 class="card__title">Daily goal</h2>
+    <div class="field"><label class="field__label" for="goal">Target <span class="field__value" data-out></span></label><input class="slider" id="goal" type="range" min="1000" max="4000" step="100" value="2200" data-format="{v} ml"></div>
+  </div>
+  <div class="card"><h2 class="card__title">Nudges</h2>
+    <p class="card__body">A soft buzz from the bottle when you fall behind pace.</p>
+    <button class="toggle" role="switch" aria-checked="true" type="button"><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__label">Reminders</span><span class="toggle__state" aria-hidden="true"></span></button>
+  </div>
+  <div class="card"><h2 class="card__title">Your bottle</h2>
+    <div class="field"><label class="field__label" for="bn">Bottle name</label><input class="input" id="bn" type="text" value="Desk bottle" data-validate><span class="field__hint">Shown on your sip log.</span><span class="field__error" id="bne"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/><path d="M10 5.5v5M10 13.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Name needs at least 2 characters.</span></div>
+  </div>
+</div>
+<p class="foot">Meniscus is a fictional product. All data on these pages is placeholder.</p>
+</main>
+<script src="app.js"></script>
+<script>
+(function(){
+  var drunk=1320, hist=[], goal=2200;
+  var g=document.getElementById("gauge");
+  function cup(){ return +document.querySelector('input[name=cup]:checked').value; }
+  function render(){
+    var p=Math.min(100,Math.round(drunk/goal*100)), left=Math.max(0,goal-drunk);
+    g.style.setProperty("--level",p); g.setAttribute("aria-valuenow",p); g.classList.toggle("is-low",p<20);
+    document.getElementById("num").innerHTML=drunk.toLocaleString("en")+"<small> ml</small>";
+    document.getElementById("pct").textContent=p+"%";
+    document.getElementById("goalt").textContent=goal.toLocaleString("en");
+    document.getElementById("tag").textContent=p>=100?"Goal reached":p<20?"Low, drink soon":"On pace";
+    document.getElementById("msg").textContent=left?"You are "+left.toLocaleString("en")+" ml from today's goal. One cup now keeps you on pace until dinner.":"Goal reached. Sip freely.";
+    document.getElementById("undo").disabled=!hist.length;
+  }
+  document.getElementById("add").onclick=function(){ hist.push(cup()); drunk+=cup(); render(); };
+  document.getElementById("undo").onclick=function(){ drunk-=hist.pop()||0; render(); };
+  document.addEventListener("sliderinput",function(e){ if(e.detail.id==="goal"){ goal=+e.detail.value; render(); } });
+  render();
+})();
+</script>
+</body>
+</html>

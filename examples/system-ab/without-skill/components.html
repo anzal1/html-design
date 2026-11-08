@@ -1,0 +1,93 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+<title>Brook Components</title><link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="components.css"><link rel="stylesheet" href="page.css"><script src="app.js"></script></head><body>
+<a class="skip" href="#main">Skip to content</a><header class="top"><div class="wrap"><a class="brand" href="section.html"><i aria-hidden="true"></i>Brook</a><nav class="nav" aria-label="Design system"><a class="btn btn--sm" href="system.html" >Tokens</a><a class="btn btn--sm" href="components.html" aria-current="page">Components</a><a class="btn btn--sm" href="section.html" >Section</a><button class="btn btn--sm" id="theme-toggle" type="button">Dark mode</button></nav></div></header>
+<main id="main"><div class="wrap">
+<p class="card__eyebrow">Brook design system, part 2 of 3</p>
+<h1>Components</h1>
+<p class="lede">Seven components, all built from the tokens. Forced states (hover, pressed, focus) are shown statically with <code>is-*</code> classes so you can compare them; real interaction works too, so try the keyboard.</p>
+
+<section aria-labelledby="c-btn"><h2 id="c-btn">Button</h2><p class="note">Primary is a solid accent fill for the one main action. Secondary is raised from the surface. Both keep a 44px target.</p>
+<div class="spec">
+<div class="card"><h3 class="card__title">Primary</h3>
+<div class="state"><small>Default</small><button class="btn btn--primary" type="button">Log 250 ml</button></div>
+<div class="state"><small>Hover</small><button class="btn btn--primary is-hover" type="button">Log 250 ml</button></div>
+<div class="state"><small>Pressed</small><button class="btn btn--primary is-pressed" type="button">Log 250 ml</button></div>
+<div class="state"><small>Focus</small><button class="btn btn--primary is-focus" type="button">Log 250 ml</button></div>
+<div class="state"><small>Disabled</small><button class="btn btn--primary" type="button" disabled>Log 250 ml</button></div>
+<div class="state"><small>Loading</small><button class="btn btn--primary is-loading" type="button" aria-busy="true">Saving</button></div></div>
+<div class="card"><h3 class="card__title">Secondary</h3>
+<div class="state"><small>Default</small><button class="btn" type="button">Edit goal</button></div>
+<div class="state"><small>Hover</small><button class="btn is-hover" type="button">Edit goal</button></div>
+<div class="state"><small>Pressed</small><button class="btn is-pressed" type="button">Edit goal</button></div>
+<div class="state"><small>Focus</small><button class="btn is-focus" type="button">Edit goal</button></div>
+<div class="state"><small>Disabled</small><button class="btn" type="button" disabled>Edit goal</button></div>
+<div class="state"><small>Loading</small><button class="btn is-loading" type="button" aria-busy="true">Syncing</button></div></div>
+</div></section>
+
+<section aria-labelledby="c-tog"><h2 id="c-tog">Toggle</h2><p class="note">A real checkbox with <code>role="switch"</code>. On is accent fill with a tick in the thumb, so it never relies on colour or shadow alone.</p>
+<div class="card"><div class="spec">
+<div class="state"><small>Off</small><label class="toggle"><input type="checkbox" role="switch"><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Reminders</span></label></div>
+<div class="state"><small>On</small><label class="toggle"><input type="checkbox" role="switch" checked><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Reminders</span></label></div>
+<div class="state"><small>Hover</small><label class="toggle is-hover"><input type="checkbox" role="switch"><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Reminders</span></label></div>
+<div class="state"><small>Pressed</small><label class="toggle is-pressed"><input type="checkbox" role="switch"><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Reminders</span></label></div>
+<div class="state"><small>Focus</small><label class="toggle is-focus"><input type="checkbox" role="switch" checked><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Reminders</span></label></div>
+<div class="state"><small>Disabled</small><label class="toggle"><input type="checkbox" role="switch" disabled><span class="toggle__track"><span class="toggle__thumb"></span></span><span class="toggle__text">Reminders</span></label></div>
+</div></div></section>
+
+<section aria-labelledby="c-sl"><h2 id="c-sl">Slider</h2><p class="note">A native range input, so keyboard and screen readers work for free. The filled part of the track shows the value; a visible number sits beside the label.</p>
+<div class="card"><div class="spec">
+<div class="state" style="width:100%"><small>Default</small><div class="field" style="width:100%"><label class="field__label" for="s1">Daily goal <output id="o1">2,000 ml</output></label><input class="slider" id="s1" type="range" min="1000" max="4000" step="100" value="2000" data-out="o1" data-unit=" ml"></div></div>
+<div class="state" style="width:100%"><small>Hover</small><div class="field" style="width:100%"><label class="field__label" for="s2">Daily goal <output id="o2">2,500 ml</output></label><input class="slider is-hover" id="s2" type="range" min="1000" max="4000" step="100" value="2500" data-out="o2" data-unit=" ml"></div></div>
+<div class="state" style="width:100%"><small>Pressed</small><div class="field" style="width:100%"><label class="field__label" for="s3">Daily goal <output id="o3">3,000 ml</output></label><input class="slider is-pressed" id="s3" type="range" min="1000" max="4000" step="100" value="3000" data-out="o3" data-unit=" ml"></div></div>
+<div class="state" style="width:100%"><small>Focus</small><div class="field" style="width:100%"><label class="field__label" for="s4">Daily goal <output id="o4">2,000 ml</output></label><input class="slider is-focus" id="s4" type="range" min="1000" max="4000" step="100" value="2000" data-out="o4" data-unit=" ml"></div></div>
+<div class="state" style="width:100%"><small>Disabled</small><div class="field" style="width:100%"><label class="field__label" for="s5">Daily goal <output id="o5">2,000 ml</output></label><input class="slider" id="s5" type="range" min="1000" max="4000" step="100" value="2000" data-out="o5" data-unit=" ml" disabled></div></div>
+</div></div></section>
+
+<section aria-labelledby="c-seg"><h2 id="c-seg">Segmented control</h2><p class="note">Radio group in a fieldset. The selected segment is raised with an accent underline and accent text, so selection is readable without seeing shadows.</p>
+<div class="card"><div class="spec">
+<div class="state"><small>Default</small><fieldset class="seg" style="border:1.5px solid var(--edge)"><legend class="sr-only">Cup size</legend>
+<label class="seg__opt"><input type="radio" name="g1" checked><span>150</span></label><label class="seg__opt"><input type="radio" name="g1"><span>250</span></label><label class="seg__opt"><input type="radio" name="g1"><span>500</span></label></fieldset></div>
+<div class="state"><small>Hover on 250</small><fieldset class="seg"><legend class="sr-only">Cup size</legend>
+<label class="seg__opt"><input type="radio" name="g2" checked><span>150</span></label><label class="seg__opt is-hover"><input type="radio" name="g2"><span>250</span></label><label class="seg__opt"><input type="radio" name="g2"><span>500</span></label></fieldset></div>
+<div class="state"><small>Pressed on 250</small><fieldset class="seg"><legend class="sr-only">Cup size</legend>
+<label class="seg__opt"><input type="radio" name="g3" checked><span>150</span></label><label class="seg__opt is-pressed"><input type="radio" name="g3"><span>250</span></label><label class="seg__opt"><input type="radio" name="g3"><span>500</span></label></fieldset></div>
+<div class="state"><small>Focus on 250</small><fieldset class="seg"><legend class="sr-only">Cup size</legend>
+<label class="seg__opt"><input type="radio" name="g4"><span>150</span></label><label class="seg__opt is-focus"><input type="radio" name="g4" checked><span>250</span></label><label class="seg__opt"><input type="radio" name="g4"><span>500</span></label></fieldset></div>
+<div class="state"><small>Disabled</small><fieldset class="seg seg--disabled" disabled><legend class="sr-only">Cup size</legend>
+<label class="seg__opt"><input type="radio" name="g5" checked disabled><span>150</span></label><label class="seg__opt"><input type="radio" name="g5" disabled><span>250</span></label><label class="seg__opt"><input type="radio" name="g5" disabled><span>500</span></label></fieldset></div>
+</div></div></section>
+
+<section aria-labelledby="c-in"><h2 id="c-in">Input</h2><p class="note">Sunk well with a visible 3:1 border. Labels are always visible (no placeholder-as-label). Errors add an icon, text and a thicker red border.</p>
+<div class="card"><div class="spec">
+<div class="state" style="width:100%"><small>Default</small><div class="field" style="width:100%"><label class="field__label" for="i1">Custom amount</label><input class="input" id="i1" inputmode="numeric" placeholder="e.g. 330"><span class="field__hint">Millilitres, up to 2000.</span></div></div>
+<div class="state" style="width:100%"><small>Hover</small><div class="field" style="width:100%"><label class="field__label" for="i2">Custom amount</label><input class="input is-hover" id="i2" placeholder="e.g. 330"></div></div>
+<div class="state" style="width:100%"><small>Focus</small><div class="field" style="width:100%"><label class="field__label" for="i3">Custom amount</label><input class="input is-focus" id="i3" value="330"></div></div>
+<div class="state" style="width:100%"><small>Error</small><div class="field" style="width:100%"><label class="field__label" for="i4">Custom amount</label><input class="input" id="i4" value="9000" aria-invalid="true" aria-describedby="e4"><span class="field__error" id="e4">Enter 2000 ml or less.</span></div></div>
+<div class="state" style="width:100%"><small>Disabled</small><div class="field" style="width:100%"><label class="field__label" for="i5">Custom amount</label><input class="input" id="i5" value="Locked while syncing" disabled></div></div>
+</div></div></section>
+
+<section aria-labelledby="c-card"><h2 id="c-card">Card</h2><p class="note">Raised container. The interactive variant is a real button element, so it takes focus and Enter/Space.</p>
+<div class="grid">
+<div class="card"><span class="card__eyebrow">Static</span><h3 class="card__title">Morning streak</h3><p class="card__stat">12 days</p><p class="card__meta">First glass before 9am.</p></div>
+<button class="card card--interactive" type="button"><span class="card__eyebrow">Interactive</span><span class="card__title">Weekly report</span><span class="card__meta">Open the 7-day view</span></button>
+<button class="card card--interactive is-hover" type="button"><span class="card__eyebrow">Hover</span><span class="card__title">Weekly report</span><span class="card__meta">Lifts one step</span></button>
+<button class="card card--interactive is-pressed" type="button"><span class="card__eyebrow">Pressed</span><span class="card__title">Weekly report</span><span class="card__meta">Sinks into the surface</span></button>
+<button class="card card--interactive is-focus" type="button"><span class="card__eyebrow">Focus</span><span class="card__title">Weekly report</span><span class="card__meta">Two-tone ring</span></button>
+<div class="card card--inset"><span class="card__eyebrow">Inset</span><h3 class="card__title">Quiet note</h3><p class="card__meta">For secondary info that should recede.</p></div>
+<div class="card is-disabled" aria-disabled="true"><span class="card__eyebrow">Disabled</span><h3 class="card__title">Bottle sync</h3><p class="card__meta">Pair a bottle to enable.</p></div>
+</div></section>
+
+<section aria-labelledby="c-g"><h2 id="c-g">Fill gauge</h2><p class="note">Water-specific. A round tank whose level is one CSS variable. It is <code>role="meter"</code> with a text value inside, so the number is always readable and the colour is decoration. Below 25% the rim turns red and a label says Low. Waves stop with reduced motion.</p>
+<div class="grid">
+<div class="card"><span class="card__eyebrow">Default 72%</span>
+<div class="gauge" role="meter" aria-label="Today's intake" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="1440" aria-valuetext="1,440 of 2,000 millilitres" style="--level:72"><div class="gauge__well"><div class="gauge__water"></div></div><div class="gauge__read"><span class="gauge__value">72%</span></div></div></div>
+<div class="card"><span class="card__eyebrow">Empty-ish (warning)</span>
+<div class="gauge gauge--low" role="meter" aria-label="Today's intake" aria-valuemin="0" aria-valuemax="2000" aria-valuenow="300" aria-valuetext="300 of 2,000 millilitres, low" style="--level:15"><div class="gauge__well"><div class="gauge__water"></div></div><div class="gauge__read"><span class="gauge__value">15%</span><span class="gauge__sub">Low</span></div></div></div>
+<div class="card"><span class="card__eyebrow">Loading</span>
+<div class="gauge is-loading" role="status" aria-label="Loading intake" aria-busy="true"><div class="gauge__well"><div class="gauge__water"></div></div><div class="gauge__read"><span class="gauge__value">...</span></div></div></div>
+<div class="card"><span class="card__eyebrow">Disabled</span>
+<div class="gauge is-disabled" role="meter" aria-disabled="true" aria-label="Today's intake, no bottle paired" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--level:40"><div class="gauge__well"><div class="gauge__water"></div></div><div class="gauge__read"><span class="gauge__value">--</span></div></div></div>
+</div></section>
+</div></main>
+<footer><div class="wrap">Back to <a href="system.html">tokens</a> or on to the <a href="section.html">section</a>.</div></footer>
+</body></html>
