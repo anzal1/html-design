@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="base.css"><link rel="stylesheet" href="home.css"><title>Scribble</title></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="4"/></filter></svg>
+<main class="wrap">
+<button class="btn theme" id="theme" aria-label="Switch light or dark"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg><span class="sr">Theme</span></button>
+<header class="top"><div><h1 class="brand">Scribble<svg viewBox="0 0 260 18" preserveAspectRatio="none"><path d="M3 11C40 4 70 15 110 8s80 6 120 0 22 4 28 3"/></svg></h1>
+<p class="sub">14 notes, 3 pinned. Last scribbled today at 9:41.</p></div></header>
+<div class="bar">
+<label class="search sk"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5"/><path d="M15 15l6 6"/></svg><span class="sr">Search notes</span><input id="q" type="search" placeholder="Search your scribbles"></label>
+<div class="chips" role="group" aria-label="Filter">
+<button class="chip sk" aria-pressed="true" data-f="all">All</button>
+<button class="chip sk" aria-pressed="false" data-f="home">Home</button>
+<button class="chip sk" aria-pressed="false" data-f="trip">Trips</button>
+<button class="chip sk" aria-pressed="false" data-f="work">Work</button></div></div>
+<section class="board" id="board" aria-label="Notes">
+<a class="card sk big" href="note.html" data-t="home" style="--tilt:-.8deg"><span class="tape"></span><h2>Sourdough, take four</h2><p>Hydration down to 72%. Fold every 30 min, three times, then leave it alone. Crumb was finally open.</p>
+<svg class="doodle" viewBox="0 0 300 96"><path d="M30 70c-6-34 22-52 60-52s70 16 76 50c-34 8-100 10-136 2z"/><path class="red" d="M62 36l14 10M96 28l12 12M132 30l10 14"/><path d="M190 76c24-4 60-4 90 0"/></svg>
+<div class="meta"><span>Today, 9:41</span><svg class="pin" viewBox="0 0 24 24"><path d="M12 3l3 6 6 1-4.5 4.2 1 6.3L12 17.5 6.5 20.5l1-6.3L3 10l6-1z"/></svg></div></a>
+<a class="card sk" href="note.html" data-t="trip" style="--tilt:.9deg"><span class="tape"></span><h2>Lisbon, 3 days</h2>
+<ul class="todo"><li class="d"><i></i><span>Book tram 28 slot</span></li><li class="d"><i></i><span>Pastéis, Belém</span></li><li><i></i><span>Sunset at Miradouro</span></li><li><i></i><span>Buy gift tiles</span></li></ul>
+<div class="meta"><span>Yesterday</span><span>2 of 4</span></div></a>
+<a class="card sk" href="note.html" data-t="work" style="--tilt:-.5deg"><h2>Standup, Tuesday</h2><p>Mara ships the onboarding fix Thursday. Dev needs the new icon set by Friday noon. Ask Ravi about invoice export.</p><div class="meta"><span>Tue</span><span>Work</span></div></a>
+<a class="card sk" href="note.html" data-t="home" style="--tilt:.6deg"><span class="tape"></span><h2>Balcony plan</h2><p>Basil on the left rail, chillies in the blue pots, one tall tomato if the wind allows.</p>
+<svg class="doodle" viewBox="0 0 300 96"><path d="M20 84h260M60 84V50h50v34M80 50c-12-20 10-30 0-44M200 84V40M200 60c20-10 30-30 16-40M200 66c-20-6-26-22-14-30"/><circle class="red" cx="236" cy="62" r="7"/></svg>
+<div class="meta"><span>Sat</span><span>Home</span></div></a>
+<a class="card sk" href="note.html" data-t="trip" style="--tilt:-1deg"><h2>Packing</h2><p>Adapter, rain shell, two good socks, the small camera. Leave the big lens at home this time.</p><div class="meta"><span>Mon</span><span>Trips</span></div></a>
+<a class="card sk" href="note.html" data-t="work" style="--tilt:.7deg"><h2>Pitch order</h2><p>Open with the empty-state story. Numbers second. Close on the three-week plan, no slide 12.</p><div class="meta"><span>Mon</span><span>Work</span></div></a>
+</section>
+<p class="empty" id="empty">Nothing here yet. Grab the pen.</p>
+<a class="btn primary sk fab" href="note.html"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>New note</a>
+</main>
+<script>
+var cards=[].slice.call(document.querySelectorAll('.card')),f='all',q=document.getElementById('q');
+function run(){var n=0;cards.forEach(function(c){var ok=(f=='all'||c.dataset.t==f)&&c.textContent.toLowerCase().indexOf(q.value.toLowerCase())>-1;c.style.display=ok?'':'none';if(ok)n++});document.getElementById('empty').style.display=n?'none':'block'}
+q.oninput=run;document.querySelectorAll('.chip').forEach(function(b){b.onclick=function(){document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');f=b.dataset.f;run()}});
+</script>
+<script>var r=document.documentElement,t=document.getElementById("theme");try{var s=localStorage.getItem("th");if(s)r.dataset.theme=s}catch(e){}t.onclick=function(){var d=(r.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))=="dark"?"light":"dark";r.dataset.theme=d;try{localStorage.setItem("th",d)}catch(e){}}</script>
+</body></html>

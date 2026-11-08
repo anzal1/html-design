@@ -1,0 +1,24 @@
+:root{
+ --color-paper:#F6F6F3; --color-surface:#FFFFFF; --color-ink:#232428; --color-muted:#5F6269;
+ --color-rule:#C9D3DD; --color-accent:#D9441C; --color-hl:#FFE45C; --color-line:#2B2C30;
+ --font-display:"Caveat","Bradley Hand","Noteworthy","Segoe Print",cursive;
+ --font-body:"Kalam","Bradley Hand","Noteworthy","Segoe Print",cursive;
+ --text-xs:14px; --text-sm:16px; --text-md:19px; --text-lg:28px; --text-xl:42px; --text-2xl:68px;
+ --leading-tight:1.0; --leading-body:1.5; --leading-note:32px;
+ --tracking-tight:-0.01em; --tracking-loose:0.04em;
+ --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:40px; --space-7:64px;
+ --radius-sm:6px; --radius-md:14px; --radius-pill:999px;
+ --opacity-soft:.55; --opacity-faint:.18;
+ --container-wide:1120px; --container-note:720px;
+ --breakpoint-md:768px; --breakpoint-lg:1024px;
+ --shadow-pad:0 1px 0 rgba(0,0,0,.06);
+}
+:root{ color-scheme:light }
+@media (prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  --color-paper:#1B1C1E; --color-surface:#232528; --color-ink:#E9E8E3; --color-muted:#A3A5AA;
+  --color-rule:#34383D; --color-accent:#FF7A55; --color-hl:#7A6A14; --color-line:#E9E8E3; color-scheme:dark }
+}
+:root[data-theme="dark"]{
+  --color-paper:#1B1C1E; --color-surface:#232528; --color-ink:#E9E8E3; --color-muted:#A3A5AA;
+  --color-rule:#34383D; --color-accent:#FF7A55; --color-hl:#7A6A14; --color-line:#E9E8E3; color-scheme:dark }

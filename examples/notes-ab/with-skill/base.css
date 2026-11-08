@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap");
+@import url("tokens.css");
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--color-ground);color:var(--color-ink);font:400 var(--text-md)/1.4 var(--font-body);min-height:100vh;
+  background-image:radial-gradient(color-mix(in srgb,var(--color-ink) 14%,transparent) 1.2px,transparent 1.4px);background-size:28px 28px}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+.display{font-family:var(--font-display);font-weight:700;letter-spacing:var(--tracking-tight);line-height:var(--leading-tight)}
+.label{font-size:var(--text-xs);letter-spacing:var(--tracking-loose);text-transform:uppercase}
+.wobble-fx{filter:url(#wobble)}
+:focus-visible{outline:3px dashed var(--color-accent);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg.i{width:24px;height:24px;flex:none;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* hand-drawn box: wobbly border + hard offset shadow live on a filtered layer, text stays crisp */
+.drawn{position:relative;isolation:isolate}
+.drawn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bg,var(--color-paper));
+  border:var(--stroke) solid var(--color-ink);border-radius:var(--radius-wobble);
+  box-shadow:var(--offset) var(--offset) 0 var(--color-shadow);filter:url(#wobble)}
+.drawn.alt::before{border-radius:var(--radius-wobble-2)}
+
+.btn{display:inline-flex;align-items:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-5);border:0;background:none;
+  font:400 var(--text-md)/1 var(--font-body);color:var(--color-ink);cursor:pointer;text-decoration:none;transition:transform .12s ease-out}
+.btn:hover{transform:translate(-1px,-2px) rotate(-1deg)}
+.btn:active{transform:translate(2px,2px)}
+.btn:active::before{box-shadow:1px 1px 0 var(--color-shadow)}
+.btn:disabled{opacity:var(--opacity-faint);cursor:not-allowed}
+.btn.primary{--bg:var(--color-accent);color:var(--color-on-accent)}
+.btn.primary::before{border-color:var(--color-ink)}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 var(--space-4);font-size:var(--text-sm);white-space:nowrap;cursor:pointer;border:0;background:none;color:var(--color-ink);font-family:var(--font-body)}
+.chip::before{box-shadow:3px 3px 0 var(--color-shadow);border-width:2px}
+.chip[aria-pressed="true"]{--bg:var(--color-tint-yellow)}
+.chip:hover{transform:rotate(-1.5deg)}
+.tape{position:absolute;width:84px;height:26px;background:var(--color-tape);opacity:.92;top:-13px;left:50%;margin-left:-42px;transform:rotate(-3deg);z-index:2;
+  clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,96% 50%,100% 100%,10% 100%,6% 88%,3% 100%,0 92%,3% 50%)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

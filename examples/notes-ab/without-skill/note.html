@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Scribble</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script>try{var t=localStorage.getItem("scr-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body>
+<svg class="defs" aria-hidden="true"><filter id="wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<div class="note-wrap">
+<div class="note-bar">
+ <a class="btn sketch" href="index.html"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H5M11 5l-7 7 7 7"/></svg>all notes</a>
+ <div class="spacer"></div>
+ <button class="btn sketch theme" onclick="tg()" aria-label="Toggle light and dark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg></button>
+</div>
+<article class="sheet"><i class="tape"></i>
+ <h1 class="note-title"><mark>Lisbon</mark> in October</h1>
+ <div class="note-meta">trips · edited today, 8:12 · 3 friends can see this</div>
+
+ <p>Four days, no rushing. Aim: <span class="hl">walk everywhere uphill once</span>, eat custard tarts daily, and be back by the Sunday evening flight.</p>
+
+ <svg class="map" viewBox="0 0 600 150" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Hand-drawn route sketch">
+  <path d="M20 110c60-70 110 40 170-10s90-60 150-10 100 30 160-20 60 0 80 10" stroke-dasharray="4 10"/>
+  <circle cx="20" cy="110" r="9" fill="var(--yellow)"/><circle cx="340" cy="90" r="9" fill="var(--pink)"/><path d="M570 100l-9-24 9 5 9-5z" fill="var(--orange)"/>
+  <text x="6" y="140" font-family="Caveat,cursive" font-size="26" fill="var(--ink)" stroke="none">airport</text>
+  <text x="300" y="130" font-family="Caveat,cursive" font-size="26" fill="var(--ink)" stroke="none">Alfama</text>
+  <text x="500" y="60" font-family="Caveat,cursive" font-size="26" fill="var(--ink)" stroke="none">Sintra!</text>
+ </svg>
+
+ <h3>Each day<svg viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M2 6c20-6 30 4 50-1s40 3 66-2" fill="none" stroke="var(--orange)" stroke-width="4" stroke-linecap="round"/></svg></h3>
+ <ul class="check">
+  <li class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/><path d="M7 12.5l3.5 4 7-9.5" stroke-width="2.8"/></svg><span>Thu: tram 28, then Graça viewpoint at sunset</span></li>
+  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>Fri: Belém, Pastéis de Belém before 10am</span></li>
+  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>Sat: Sintra day trip, Pena Palace on the 9:10 train</span></li>
+  <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>Sun: Feira da Ladra, one last bifana</span></li>
+ </ul>
+
+ <div class="callout">Pack the blue raincoat. Locals say October weather "changes its mind" by lunch.</div>
+
+ <h3>Eat list<svg viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M2 6c20-6 30 4 50-1s40 3 66-2" fill="none" stroke="var(--orange)" stroke-width="4" stroke-linecap="round"/></svg></h3>
+ <p>Manteigaria for tarts, Taberna da Rua das Flores (arrive at 6:45, no bookings), and a tiny place near Santa Apolónia Rita swears has the best grilled sardines. <span class="hl">Budget about €45 a day for food.</span></p>
+</article>
+</div>
+<div class="toolbar" role="toolbar" aria-label="Note tools">
+ <button class="tool on" aria-label="Pen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-5L16 4l4 4L9 19zM14 6l4 4"/></svg></button>
+ <button class="tool" aria-label="Highlighter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14l7-9 4 3-8 9zM9 14l-2 5 5-1M4 21h5"/></svg></button>
+ <button class="tool" aria-label="Checklist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l2 2 3-4M4 16l2 2 3-4M13 7h7M13 17h7"/></svg></button>
+ <button class="tool" aria-label="Sticker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.5 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg></button>
+</div>
+<script>function tg(){var d=document.documentElement,dk=d.dataset.theme?d.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;d.dataset.theme=dk?"light":"dark";try{localStorage.setItem("scr-theme",d.dataset.theme)}catch(e){}}</script></body></html>

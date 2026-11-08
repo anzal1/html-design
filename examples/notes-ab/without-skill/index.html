@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark"><title>Scribble</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Patrick+Hand&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script>try{var t=localStorage.getItem("scr-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script></head><body>
+<svg class="defs" aria-hidden="true"><filter id="wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<div class="wrap">
+<header class="top">
+ <a class="logo" href="index.html"><span>scribble</span></a>
+ <div class="spacer"></div>
+ <label class="search sketch" style="--bg:var(--paper2)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 4a6 6 0 1 0 .3 12A6 6 0 0 0 10 4zM15 15l5.5 5.5"/></svg>search my mess…</label>
+ <button class="btn sketch theme" onclick="tg()" aria-label="Toggle light and dark"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg></button>
+</header>
+
+<div class="hello"><h1>Morning, <u>Mira<svg viewBox="0 0 200 16" preserveAspectRatio="none"><path d="M2 9c20-8 40 6 60-1s40 5 60-1 40 4 76-2" fill="none" stroke="var(--orange)" stroke-width="5" stroke-linecap="round"/></svg></u>!</h1>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="10" fill="var(--yellow)"/><path d="M32 8v8M32 48v8M8 32h8M48 32h8M15 15l5 5M44 44l5 5M49 15l-5 5M20 44l-5 5"/></svg></div>
+<p class="sub">9 notes, 3 things due this week.</p>
+
+<nav class="tabs" aria-label="Filters"><a class="tag sketch on" href="#" style="--bg:var(--yellow)">all</a><a class="tag sketch" href="#">ideas</a><a class="tag sketch" href="#">lists</a><a class="tag sketch" href="#">trips</a><a class="tag sketch" href="#">recipes</a></nav>
+
+<main class="board">
+ <a class="card c-yellow" style="--r:-1.6deg" href="note.html"><i class="tape"></i>
+  <h2>Lisbon in October</h2>
+  <svg class="doodle" width="190" height="64" viewBox="0 0 190 64" fill="none" stroke="#26221c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 56h182M20 56V30l14-10 14 10v26M34 56V42h8v14M70 56V18l12-8 12 8v38M60 30h44M130 56c0-14 8-24 20-24s20 10 20 24M150 32V14M143 20l7-8 7 8"/></svg>
+  <p>Tram 28 early, pastéis at Manteigaria, sunset from Miradouro da Graça. Book Sintra for a Tuesday.</p>
+  <div class="meta"><span>trips</span><span>·</span><span>edited today</span></div></a>
+
+ <a class="card c-paper" style="--r:1.2deg;--tr:5deg" href="note.html"><i class="tape"></i>
+  <h2>Sat errands</h2>
+  <ul class="check"><li class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/><path d="M7 12.5l3.5 4 7-9.5" stroke-width="2.8"/></svg><span>return the drill</span></li><li class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/><path d="M7 12.5l3.5 4 7-9.5" stroke-width="2.8"/></svg><span>oat milk, lemons</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>fix bike light</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>call Nana about Sunday</span></li></ul>
+  <div class="meta"><span>lists</span><span>·</span><span>2 of 4</span></div></a>
+
+ <a class="card c-pink" style="--r:-.8deg" href="note.html">
+  <h2>Pitch for the zine</h2>
+  <p>"Small maps of places you only visited once." Riso, two colours, 24 pages. Ask Jonas about the print run before Friday.</p>
+  <svg class="doodle" width="140" height="40" viewBox="0 0 140 40" fill="none" stroke="#26221c" stroke-width="2.6" stroke-linecap="round"><path d="M4 22c12-18 20 18 32 0s20 18 32 0 20 18 32 0 20 12 32 0"/></svg>
+  <div class="meta"><span>ideas</span><span>·</span><span>Mon</span></div></a>
+
+ <a class="card c-mint" style="--r:1.5deg;--tr:-7deg" href="note.html"><i class="tape"></i>
+  <h2>Grandma's dal</h2>
+  <p>1 cup red lentils, turmeric, a fat spoon of ghee. Tadka last: cumin, garlic, dried chilli till it spits.</p>
+  <div class="meta"><span>recipes</span><span>·</span><span>serves 4</span></div></a>
+
+ <a class="card c-sky" style="--r:-1.2deg" href="note.html">
+  <h2>Balcony garden</h2>
+  <svg class="doodle" width="90" height="90" viewBox="0 0 90 90" fill="none" stroke="#26221c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M28 58h34l-4 26H32zM45 58V28M45 40c-14 0-18-10-18-18 12 0 18 6 18 18zM45 34c0-10 6-18 18-18 0 10-6 18-18 18z" /></svg>
+  <p>Basil is sulking. Move to the east rail, water every other morning. Order mint seeds.</p>
+  <div class="meta"><span>lists</span><span>·</span><span>Sun</span></div></a>
+
+ <a class="card c-paper" style="--r:.7deg" href="note.html"><i class="tape" style="--tr:3deg"></i>
+  <h2>Things Ravi said</h2>
+  <p>"A deadline is just a polite guess." Also: ship the ugly version, then draw over it.</p>
+  <div class="meta"><span>ideas</span><span>·</span><span>last week</span></div></a>
+
+ <a class="card c-yellow" style="--r:-1deg" href="note.html">
+  <h2>Birthday gifts</h2>
+  <ul class="check"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>Priya: ceramic pen cup</span></li><li class="done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/><path d="M7 12.5l3.5 4 7-9.5" stroke-width="2.8"/></svg><span>Dad: the good tea</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c5-1 11-.8 16 0 .6 5 .5 9.5 0 13.5-5 .8-11 .9-16 0-.7-4.5-.6-9 0-13.5z"/></svg><span>Leo: used Polaroid</span></li></ul>
+  <div class="meta"><span>lists</span><span>·</span><span>1 of 3</span></div></a>
+</main>
+</div>
+<a class="btn sketch primary fab" href="note.html" aria-label="New note">+</a>
+<script>function tg(){var d=document.documentElement,dk=d.dataset.theme?d.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;d.dataset.theme=dk?"light":"dark";try{localStorage.setItem("scr-theme",d.dataset.theme)}catch(e){}}</script></body></html>

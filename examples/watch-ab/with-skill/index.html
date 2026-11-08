@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vauren Manufacture, Calibre 7</title>
+<meta name="description" content="Vauren, independent watch manufacture, Jura. The hand-wound Calibre 7 skeleton.">
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="hero.css">
+</head>
+<body>
+<a class="sr" href="#hero">Skip to content</a>
+<header class="nav">
+ <div class="nav__in">
+  <a class="brand" href="#" aria-label="Vauren home">
+   <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M13 5v8l5 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="13" cy="13" r="2.4" fill="var(--color-ruby)"/></svg>
+   VAUREN
+  </a>
+  <ul class="nav__links" id="links">
+   <li><a href="#">Collection</a></li>
+   <li><a href="#">Calibre 7</a></li>
+   <li><a href="#">Manufacture</a></li>
+   <li><a href="#">Boutiques</a></li>
+  </ul>
+  <div class="nav__end">
+   <a class="btn btn--line" href="#">Book a viewing</a>
+   <button class="nav__menu" aria-expanded="false" aria-controls="links"><i aria-hidden="true"></i>Menu</button>
+  </div>
+ </div>
+</header>
+<main>
+<section class="hero" id="hero" aria-labelledby="h">
+ <div class="hero__copy">
+  <p class="eyebrow">Calibre 7 &middot; Jura, since 1934</p>
+  <h1 id="h">Time, laid <em>bare.</em></h1>
+  <p class="hero__lede">One hundred and eighty-four parts, hand-finished and left open to the eye. The Calibre 7 skeleton is wound by thumb, not by battery, and serviced for life.</p>
+  <div class="hero__cta"><a class="btn btn--solid" href="#">Discover the Calibre 7</a><a class="btn btn--line" href="#">Find a boutique</a></div>
+  <ol class="legend" id="legend"></ol>
+  <ul class="specs"><li><b>184</b><span>Parts</span></li><li><b>72 h</b><span>Reserve</span></li><li><b>21,600</b><span>Beats / hour</span></li></ul>
+ </div>
+ <div class="stage">
+  <svg id="ill" viewBox="0 0 700 840" role="img" aria-label="Exploded isometric view of the Calibre 7 movement: crystal and case, dial, balance wheel, gear train and mainplate"></svg>
+ </div>
+</section>
+</main>
+<script src="ill.js"></script>
+<script>
+const b=document.querySelector('.nav__menu'),l=document.getElementById('links');
+b.addEventListener('click',()=>{const o=l.classList.toggle('is-open');b.setAttribute('aria-expanded',o)});
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--color-paper);color:var(--color-ink);font-family:var(--font-body);font-size:var(--text-sm);line-height:var(--leading-body);min-height:100vh;
+ background-image:linear-gradient(var(--color-rule) 1px,transparent 1px),linear-gradient(90deg,var(--color-rule) 1px,transparent 1px);
+ background-size:32px 32px;background-position:-1px -1px}
+body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse at 50% 30%,transparent 40%,var(--color-paper) 120%);pointer-events:none;opacity:.7}
+a{color:inherit}
+.wrap{position:relative;max-width:var(--container-wide);margin:0 auto;padding:var(--space-5) var(--space-4) 120px}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;letter-spacing:var(--tracking-tight);line-height:var(--leading-tight)}
+.sk{position:relative;isolation:isolate}
+.sk::before{content:"";position:absolute;inset:0;border:2px solid var(--color-line);border-radius:var(--r,10px 14px 9px 13px);filter:url(#wobble);z-index:-1;pointer-events:none}
+.btn{display:inline-flex;align-items:center;gap:var(--space-2);min-height:48px;padding:0 var(--space-4);background:transparent;border:0;color:var(--color-ink);font:700 var(--text-md)/1 var(--font-display);cursor:pointer;text-decoration:none;transition:transform .15s ease-out,background .15s ease-out}
+.btn svg{width:22px;height:22px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn:hover{transform:translateY(-1px) rotate(-1deg)}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;border-radius:8px}
+.btn.primary{background:var(--color-accent);color:#fff;--r:14px 9px 13px 10px}
+:root[data-theme=dark] .btn.primary{color:#1B1C1E}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .btn.primary{color:#1B1C1E}}
+.btn.primary::before{border-color:var(--color-line)}
+.btn[disabled]{opacity:var(--opacity-soft);cursor:not-allowed}
+.theme{position:absolute;top:var(--space-4);right:var(--space-4)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+.btn.primary,.chip{border-radius:12px}.sheet,.card,.tools,.search{border-radius:12px}

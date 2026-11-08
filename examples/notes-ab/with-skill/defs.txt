@@ -1,0 +1,10 @@
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="wobble" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="4"/></filter>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 4.5c.2 5 .1 10 0 15M4.5 12.2c5-.3 10-.2 15 0"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><path d="M10.5 4.2a6.3 6.3 0 1 0 .3 12.6 6.3 6.3 0 0 0-.3-12.6zM15.4 15.6l4.6 4.4"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M14.5 3.5l6 6-3 .8-3.2 3.6.4 3.1-1.6 1.6-3.7-3.7-5.2 5.2M9.7 7.6l1.9-1.9 2.9-2.2"/></symbol>
+<symbol id="i-all" viewBox="0 0 24 24"><path d="M4 5.2c5-.4 11-.4 16 0M4 12c5-.3 11-.3 16 0M4 18.8c5-.3 11-.3 16 0"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M5 6.3l1.6 1.7L9.5 4.5M5 14.3l1.6 1.7 2.9-3.5M12.5 6.5h7.5M12.5 15h7.5"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-13.5 14.5-14.5C19 14 13.5 19 5 19zM5 19l7-7"/></symbol>
+<symbol id="i-arch" viewBox="0 0 24 24"><path d="M4 5.5h16v4H4zM5.5 9.5V19h13V9.5M10 13.5h4"/></symbol>
+</defs></svg>

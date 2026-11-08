@@ -1,0 +1,86 @@
+:root {
+	--color-ground: #e8e5de;
+	--color-ground-2: #dedad1;
+	--color-ink: #1b1915;
+	--color-ink-soft: #55504a;
+	--color-line: color-mix(in srgb, var(--color-ink) 16%, transparent);
+	--color-ruby: #9a1c2c;
+	--color-ruby-ink: #fff6f4;
+	--color-brass: #b38b4d;
+	--color-brass-shade: #7d5f31;
+	--color-brass-light: #d3b273;
+	--color-steel: #a3a9af;
+	--color-steel-shade: #6b7279;
+	--color-dial: #f2eee3;
+	--color-dial-shade: #c9c2b0;
+	--color-shadow: #1b1915;
+
+	--font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+	--font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+	--text-xs: 12px;
+	--text-sm: 14px;
+	--text-md: 17px;
+	--text-lg: 20px;
+	--text-display: clamp(44px, 7.2vw, 124px);
+	--leading-display: 0.94;
+	--leading-body: 26px;
+	--tracking-display: -0.035em;
+	--tracking-label: 0.14em;
+
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 16px;
+	--space-4: 24px;
+	--space-5: 40px;
+	--space-6: 64px;
+	--space-gutter: clamp(20px, 4vw, 56px);
+
+	--radius-sm: 2px;
+	--radius-md: 4px;
+	--radius-pill: 999px;
+
+	--opacity-faint: 0.4;
+	--opacity-muted: 0.72;
+
+	--container-max: 1680px;
+	--nav-height: 68px;
+	--breakpoint-md: 760px;
+	--breakpoint-lg: 1080px;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme="light"]) {
+		--color-ground: #14120f;
+		--color-ground-2: #1c1914;
+		--color-ink: #ece8df;
+		--color-ink-soft: #a9a398;
+		--color-ruby: #d2485a;
+		--color-ruby-ink: #1a0a0d;
+		--color-brass: #c39a58;
+		--color-brass-shade: #6e5428;
+		--color-brass-light: #e0c283;
+		--color-steel: #7d848b;
+		--color-steel-shade: #444a50;
+		--color-dial: #d9d3c4;
+		--color-dial-shade: #8c8574;
+		--color-shadow: #000000;
+	}
+}
+
+:root[data-theme="dark"] {
+	--color-ground: #14120f;
+	--color-ground-2: #1c1914;
+	--color-ink: #ece8df;
+	--color-ink-soft: #a9a398;
+	--color-ruby: #d2485a;
+	--color-ruby-ink: #1a0a0d;
+	--color-brass: #c39a58;
+	--color-brass-shade: #6e5428;
+	--color-brass-light: #e0c283;
+	--color-steel: #7d848b;
+	--color-steel-shade: #444a50;
+	--color-dial: #d9d3c4;
+	--color-dial-shade: #8c8574;
+	--color-shadow: #000000;
+}

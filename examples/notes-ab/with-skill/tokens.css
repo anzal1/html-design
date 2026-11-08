@@ -1,0 +1,55 @@
+:root {
+  --color-ground: #f4f5f1;
+  --color-paper: #ffffff;
+  --color-ink: #232c73;
+  --color-ink-soft: #4a5189;
+  --color-accent: #d8402e;
+  --color-tint-yellow: #f7e26b;
+  --color-tint-mint: #bfe6d8;
+  --color-tint-pink: #f6c9c4;
+  --color-tape: #e9e3b4;
+  --color-rule: color-mix(in srgb, var(--color-ink) 18%, transparent);
+  --color-shadow: var(--color-ink);
+  --color-on-accent: #ffffff;
+
+  --font-display: "Caveat", "Bradley Hand", "Marker Felt", cursive;
+  --font-body: "Patrick Hand", "Chalkboard SE", "Noteworthy", cursive;
+
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-md: 19px;
+  --text-lg: 28px;
+  --text-xl: 40px;
+  --text-2xl: 64px;
+  --leading-tight: 1;
+  --leading-body: 32px;
+  --tracking-tight: -0.01em;
+  --tracking-loose: 0.06em;
+
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px; --space-7: 48px; --space-8: 72px;
+
+  --radius-wobble: 255px 18px 225px 18px / 18px 225px 18px 255px;
+  --radius-wobble-2: 18px 240px 20px 230px / 230px 20px 240px 18px;
+  --radius-pill: 999px;
+  --opacity-muted: 0.78;
+  --opacity-faint: 0.35;
+  --container-note: 720px;
+  --container-board: 1180px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --stroke: 2.5px;
+  --offset: 5px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --dark: 1;
+    --color-ground: #14171a; --color-paper: #1e2226; --color-ink: #aeb8ff; --color-ink-soft: #8f99d8;
+    --color-accent: #ff7a66; --color-tint-yellow: #5c5220; --color-tint-mint: #1f4a3f; --color-tint-pink: #5a2a2a;
+    --color-tape: #4d4a2c; --color-shadow: #000000; --color-on-accent: #1a0d0b;
+  }
+}
+:root[data-theme="dark"] {
+  --color-ground: #14171a; --color-paper: #1e2226; --color-ink: #aeb8ff; --color-ink-soft: #8f99d8;
+  --color-accent: #ff7a66; --color-tint-yellow: #5c5220; --color-tint-mint: #1f4a3f; --color-tint-pink: #5a2a2a;
+  --color-tape: #4d4a2c; --color-shadow: #000000; --color-on-accent: #1a0d0b;
+}

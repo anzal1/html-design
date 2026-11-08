@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Hallet Manufacture — The Meridian</title>
+<style>
+:root{
+  --bg:#f2ede4; --bg2:#e9e2d5; --ink:#17140f; --mute:#6d655a; --line:rgba(23,20,15,.14);
+  --accent:#9a6a2c; --btn-bg:#17140f; --btn-ink:#f2ede4;
+  --steel-top:#d9dadb; --steel-side:#a4a7ab; --steel-edge:#7d8186;
+  --brass:#c49a52; --brass-d:#8d6a2e; --dial:#1f3a34; --dial-ring:#2b4d45; --idx:#efe6d0;
+  --glass:rgba(255,255,255,.28); --glass-edge:rgba(255,255,255,.8);
+  --strap:#5a3a22; --strap-d:#3d2616; --stitch:#d7b887; --shadow:rgba(60,45,20,.18);
+  --glow:rgba(196,154,82,.28);
+}
+:root[data-theme="dark"]{
+  --bg:#0d0c0a; --bg2:#15130f; --ink:#f0eadc; --mute:#9a9183; --line:rgba(240,234,220,.14);
+  --accent:#d3a559; --btn-bg:#e8dcc0; --btn-ink:#14110c;
+  --steel-top:#8f9296; --steel-side:#5a5d62; --steel-edge:#3b3d41;
+  --brass:#d1a95f; --brass-d:#7a5a26; --dial:#12261f; --dial-ring:#1d3a31; --idx:#e8dcc0;
+  --glass:rgba(200,220,255,.10); --glass-edge:rgba(255,255,255,.5);
+  --strap:#2c1c11; --strap-d:#170d07; --stitch:#a9855a; --shadow:rgba(0,0,0,.6);
+  --glow:rgba(211,165,89,.2);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d0c0a; --bg2:#15130f; --ink:#f0eadc; --mute:#9a9183; --line:rgba(240,234,220,.14);
+    --accent:#d3a559; --btn-bg:#e8dcc0; --btn-ink:#14110c;
+    --steel-top:#8f9296; --steel-side:#5a5d62; --steel-edge:#3b3d41;
+    --brass:#d1a95f; --brass-d:#7a5a26; --dial:#12261f; --dial-ring:#1d3a31; --idx:#e8dcc0;
+    --glass:rgba(200,220,255,.10); --glass-edge:rgba(255,255,255,.5);
+    --strap:#2c1c11; --strap-d:#170d07; --stitch:#a9855a; --shadow:rgba(0,0,0,.6);
+    --glow:rgba(211,165,89,.2);
+  }
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;min-height:100vh;transition:background .4s,color .4s}
+.serif{font-family:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(16px,4vw,56px)}
+
+/* nav */
+nav{position:relative;z-index:5;border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;font-size:22px;letter-spacing:.32em;font-weight:500}
+.logo svg{width:28px;height:28px}
+.links{display:flex;gap:clamp(18px,2.6vw,40px);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.links a{padding:8px 0;position:relative;transition:color .2s}
+.links a:hover{color:var(--ink)}
+.links a::after{content:"";position:absolute;left:0;right:100%;bottom:2px;height:1px;background:var(--accent);transition:right .3s}
+.links a:hover::after{right:0}
+.tools{display:flex;gap:10px;align-items:center}
+.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink);cursor:pointer;display:grid;place-items:center;transition:border-color .2s}
+.icon-btn:hover{border-color:var(--accent)}
+.icon-btn svg{width:18px;height:18px}
+.menu-btn{display:none}
+.cta-sm{font-size:12px;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--ink);padding:12px 18px;border-radius:2px;transition:background .2s,color .2s}
+.cta-sm:hover{background:var(--ink);color:var(--bg)}
+@media (max-width:900px){
+  .links{display:none}
+  .menu-btn{display:grid}
+  .cta-sm{display:none}
+  nav.open .links{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--bg);padding:12px clamp(16px,4vw,56px) 20px;border-bottom:1px solid var(--line);gap:4px}
+  nav.open .links a{padding:14px 0;font-size:14px}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(60% 55% at 70% 48%,var(--glow),transparent 70%),
+  linear-gradient(var(--bg),var(--bg2))}
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(70% 70% at 70% 50%,#000 0,transparent 75%);-webkit-mask-image:radial-gradient(70% 70% at 70% 50%,#000 0,transparent 75%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:center;gap:clamp(8px,3vw,48px);min-height:calc(100vh - 73px);min-height:calc(100svh - 73px);padding-top:32px;padding-bottom:32px}
+.copy{max-width:540px}
+.eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--accent)}
+h1{font-weight:400;font-size:clamp(44px,6.4vw,92px);line-height:.98;letter-spacing:-.01em;margin:22px 0 22px}
+h1 em{font-style:italic;color:var(--accent)}
+.lede{font-size:clamp(15px,1.3vw,18px);line-height:1.65;color:var(--mute);max-width:44ch}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin:32px 0 40px}
+.btn{font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:18px 28px;border-radius:2px;border:1px solid var(--btn-bg);background:var(--btn-bg);color:var(--btn-ink);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px var(--shadow)}
+.btn.ghost{background:none;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.specs{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:clamp(18px,3vw,44px);border-top:1px solid var(--line);padding-top:22px}
+.specs b{display:block;font-weight:400;font-size:clamp(24px,2.4vw,34px)}
+.specs span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+
+.art{position:relative;display:grid;place-items:center}
+.art svg{width:100%;height:auto;max-height:calc(100svh - 110px);overflow:visible;display:block}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0;gap:0;padding-top:36px}
+  .copy{max-width:none}
+  .art{order:-1;margin:-4px -8px 8px}
+  .art svg{max-height:none}
+  .callout{display:none}
+}
+@media (max-width:420px){.specs{grid-template-columns:repeat(3,1fr);gap:10px}.btn{flex:1;text-align:center;padding:18px 16px}}
+
+/* svg theming */
+.steel-top{fill:var(--steel-top)} .steel-side{fill:var(--steel-side)} .steel-edge{stroke:var(--steel-edge);fill:none}
+.brass{fill:var(--brass);stroke:var(--brass-d);stroke-width:1.2}
+.brass-d{fill:var(--brass-d)}
+.dial{fill:var(--dial)} .dial-ring{fill:var(--dial-ring)}
+.idx{fill:var(--idx)} .idx-s{stroke:var(--idx);fill:none}
+.glass{fill:var(--glass);stroke:var(--glass-edge);stroke-width:1.5}
+.strap{fill:var(--strap)} .strap-d{fill:var(--strap-d)}
+.stitch{stroke:var(--stitch);fill:none;stroke-dasharray:6 6;stroke-width:2}
+.shadow{fill:var(--shadow)}
+.guide{stroke:var(--mute);stroke-width:1;stroke-dasharray:3 6;fill:none;opacity:.55}
+.callout text{fill:var(--mute);font:500 15px "Helvetica Neue",Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+.callout line{stroke:var(--accent);stroke-width:1}
+.callout circle{fill:var(--accent)}
+
+/* motion */
+.layer{animation:float 7s ease-in-out infinite}
+.l2{animation-delay:-1.4s}.l3{animation-delay:-2.8s}.l4{animation-delay:-4.2s}
+@keyframes float{50%{transform:translateY(-9px)}}
+.spin{transform-box:fill-box;transform-origin:center;animation:spin 24s linear infinite}
+.spin.r{animation-direction:reverse}
+.spin.f{animation-duration:12s}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sec{animation:spin 60s linear infinite}
+.min{animation:spin 3600s linear infinite}
+.bal{transform-box:fill-box;transform-origin:center;animation:osc 1s ease-in-out infinite alternate}
+@keyframes osc{from{transform:rotate(-70deg)}to{transform:rotate(70deg)}}
+.in{opacity:0;transform:translateY(28px);animation:in 1s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes in{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none}.layer,.spin,.sec,.min,.bal{transform:none}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="wrap">
+    <a href="#" class="logo serif" aria-label="Hallet Manufacture">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="16" cy="16" r="13"/><path d="M16 5v4M16 23v4M5 16h4M23 16h4M16 16l5-5M16 16V9"/></svg>
+      HALLET
+    </a>
+    <div class="links">
+      <a href="#">Collection</a><a href="#">Manufacture</a><a href="#">Calibres</a><a href="#">Boutiques</a><a href="#">Journal</a>
+    </div>
+    <div class="tools">
+      <a href="#" class="cta-sm">Book a fitting</a>
+      <button class="icon-btn" id="theme" aria-label="Toggle light and dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menu" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="copy">
+      <p class="eyebrow in" style="animation-delay:.05s">Neuchâtel · Est. 1892</p>
+      <h1 class="serif in" style="animation-delay:.15s">Four hundred parts.<br><em>One</em> quiet minute.</h1>
+      <p class="lede in" style="animation-delay:.3s">The Meridian carries our new Calibre HV-01: hand-finished, fully serviceable, and built to keep time for the next owner too.</p>
+      <div class="actions in" style="animation-delay:.45s">
+        <a href="#" class="btn">Discover the Meridian</a>
+        <a href="#" class="btn ghost">Watch it assembled</a>
+      </div>
+      <div class="specs in" style="animation-delay:.6s">
+        <div><b class="serif">72h</b><span>Power reserve</span></div>
+        <div><b class="serif">38mm</b><span>Case, 9.4 thick</span></div>
+        <div><b class="serif">28.8k</b><span>Beats per hour</span></div>
+      </div>
+    </div>
+    <div class="art in" style="animation-delay:.2s">
+      <svg id="watch" viewBox="0 0 800 840" role="img" aria-label="Isometric exploded view of the Meridian watch: strap, caseback, movement with gear train, dial, and sapphire crystal">
+        <defs>
+          <radialGradient id="shine" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></radialGradient>
+          <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".0"/><stop offset=".5" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+        </defs>
+        <g id="scene"></g>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<script>
+(function(){
+  var NS='http://www.w3.org/2000/svg', CX=400, K=.577;
+  var out=[];
+  function P(cy){return 'translate('+CX+' '+cy+') scale(1 '+K+') rotate(-45)'}
+  function gear(n,ro,ri,hole){
+    var d='',s=Math.PI*2/(n*4),a;
+    for(var i=0;i<n;i++){
+      var b=i*4*s, pts=[[ri,b],[ro,b+s*.8],[ro,b+s*2.2],[ri,b+s*3]];
+      pts.forEach(function(p,j){d+=(i===0&&j===0?'M':'L')+(Math.cos(p[1])*p[0]).toFixed(1)+' '+(Math.sin(p[1])*p[0]).toFixed(1)});
+    }
+    d+='Z';
+    if(hole){d+='M'+hole+' 0A'+hole+' '+hole+' 0 1 0 '+(-hole)+' 0A'+hole+' '+hole+' 0 1 0 '+hole+' 0Z'}
+    return d;
+  }
+  function spokes(r,n,w){var d='';for(var i=0;i<n;i++){var a=i*Math.PI*2/n;d+='M0 0L'+(Math.cos(a)*r).toFixed(1)+' '+(Math.sin(a)*r).toFixed(1)}return d}
+  // extruded disc seen in iso: stacked ellipses
+  function disc(cy,r,t,top,side,extra){
+    var s='',rx=r*Math.SQRT2*.7071*1.0; rx=r; var ry=r*K;
+    for(var i=t;i>=0;i-=2) s+='<ellipse cx="'+CX+'" cy="'+(cy+i)+'" rx="'+rx+'" ry="'+ry+'" class="'+side+'"/>';
+    s+='<ellipse cx="'+CX+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" class="'+top+'"/>';
+    return s;
+  }
+  function guide(y1,y2,x){return '<path class="guide" d="M'+x+' '+y1+'L'+x+' '+y2+'"/>'}
+
+  // ground shadow
+  out.push('<ellipse class="shadow" cx="'+CX+'" cy="790" rx="250" ry="48" opacity=".55"/>');
+  out.push('<ellipse class="shadow" cx="'+CX+'" cy="790" rx="150" ry="26" opacity=".6"/>');
+  // guides (assembly axis)
+  out.push('<path class="guide" d="M'+CX+' 90L'+CX+' 770"/>');
+  [-139,139].forEach(function(dx){out.push('<path class="guide" d="M'+(CX+dx)+' 200L'+(CX+dx)+' 600"/>')});
+
+  // L1 strap + caseback
+  var L1='<g class="layer">';
+  L1+='<g transform="'+P(620)+'">';
+  [[-440,-110],[110,440]].forEach(function(r){
+    L1+='<rect x="-62" y="'+r[0]+'" width="124" height="'+(r[1]-r[0])+'" rx="'+(r[0]<0?'10':'10')+'" class="strap-d" transform="translate(0 14)"/>';
+  });
+  [[-440,-110],[110,440]].forEach(function(r){
+    L1+='<rect x="-62" y="'+r[0]+'" width="124" height="'+(r[1]-r[0])+'" rx="10" class="strap"/>';
+    L1+='<rect x="-50" y="'+(r[0]+10)+'" width="100" height="'+(r[1]-r[0]-20)+'" rx="6" class="stitch"/>';
+  });
+  for(var i=0;i<5;i++)L1+='<circle cx="0" cy="'+(180+i*40)+'" r="6" fill="var(--strap-d)"/>';
+  L1+='</g>';
+  L1+=disc(632,168,16,'steel-top','steel-side');
+  L1+='<g transform="'+P(632)+'"><circle r="168" class="steel-edge" stroke-width="2"/><circle r="140" class="steel-edge" stroke-width="1" opacity=".7"/>';
+  for(i=0;i<8;i++){var a=i*Math.PI/4+Math.PI/8;L1+='<circle cx="'+(Math.cos(a)*154).toFixed(1)+'" cy="'+(Math.sin(a)*154).toFixed(1)+'" r="6" class="brass-d"/>'}
+  L1+='<path d="M-60 0h120M0 -60v120" class="steel-edge" opacity=".35"/><circle r="30" class="steel-edge" opacity=".5"/>';
+  L1+='<text y="-86" text-anchor="middle" font-size="15" letter-spacing="5" fill="var(--steel-edge)" font-family="Helvetica,Arial">HALLET · 904L</text></g></g>';
+  out.push(L1);
+
+  // L2 movement
+  var L2='<g class="layer l2">';
+  L2+=disc(470,150,10,'brass','brass-d');
+  L2+='<g transform="'+P(470)+'">';
+  L2+='<circle r="132" fill="none" stroke="var(--brass-d)" stroke-width="2" opacity=".7"/>';
+  L2+='<g transform="translate(-6 -2)"><g class="spin f"><path d="'+gear(28,84,74,12)+'" class="steel-top" stroke="var(--steel-edge)" stroke-width="1.2" fill-rule="evenodd"/><path d="'+spokes(70,5)+'" stroke="var(--steel-edge)" stroke-width="5"/><circle r="9" class="brass"/></g></g>';
+  L2+='<g transform="translate(108 -36)"><g class="spin r"><path d="'+gear(16,42,35,6)+'" class="brass" fill-rule="evenodd"/><circle r="5" class="brass-d"/></g></g>';
+  L2+='<g transform="translate(-78 82)"><g class="spin r f"><path d="'+gear(18,48,40,7)+'" class="brass" fill-rule="evenodd"/><path d="'+spokes(36,4)+'" stroke="var(--brass-d)" stroke-width="4"/></g></g>';
+  L2+='<g transform="translate(46 100)"><g class="spin"><path d="'+gear(12,32,26,5)+'" class="steel-top" stroke="var(--steel-edge)" stroke-width="1" fill-rule="evenodd"/></g></g>';
+  L2+='<g transform="translate(-100 -78)"><g class="bal"><circle r="34" fill="none" stroke="var(--steel-edge)" stroke-width="7"/><path d="M-34 0h68M0 -34v68" stroke="var(--steel-edge)" stroke-width="3"/><circle r="6" class="brass"/></g></g>';
+  L2+='<path d="M60 -105 A100 100 0 0 1 112 -30" fill="none" stroke="var(--steel-edge)" stroke-width="3" opacity=".6"/>';
+  L2+='</g></g>';
+  out.push(L2);
+
+  // L3 dial
+  var L3='<g class="layer l3">';
+  L3+=disc(320,156,8,'dial','dial-ring');
+  L3+='<g transform="'+P(320)+'">';
+  L3+='<circle r="148" fill="none" stroke="var(--idx)" stroke-width="1.2" opacity=".5"/><circle r="104" fill="none" stroke="var(--idx)" stroke-width=".8" opacity=".25"/>';
+  for(i=0;i<60;i++){var a=i*Math.PI/30,big=i%5===0,r1=big?118:136,r2=142;
+    L3+='<path class="idx-s" stroke-width="'+(big?4:1.2)+'" d="M'+(Math.cos(a)*r1).toFixed(1)+' '+(Math.sin(a)*r1).toFixed(1)+'L'+(Math.cos(a)*r2).toFixed(1)+' '+(Math.sin(a)*r2).toFixed(1)+'"/>'}
+  L3+='<text y="-62" text-anchor="middle" font-size="22" letter-spacing="9" class="idx" font-family="Georgia,serif">HALLET</text>';
+  L3+='<text y="82" text-anchor="middle" font-size="10" letter-spacing="4" class="idx" opacity=".7" font-family="Helvetica,Arial">MERIDIAN · AUTOMATIC</text>';
+  L3+='<g transform="rotate(-60)"><path d="M-7 14L0 -78L7 14Z" class="idx"/><path d="M-3 -40L0 -72L3 -40Z" fill="var(--dial)"/></g>';
+  L3+='<g class="min"><path d="M-5 16L0 -112L5 16Z" class="idx"/></g>';
+  L3+='<g class="sec"><path d="M0 28V-124" stroke="var(--accent)" stroke-width="2"/><circle cy="-100" r="5" fill="var(--accent)"/></g>';
+  L3+='<circle r="9" class="brass"/><circle r="3.5" fill="var(--dial)"/></g></g>';
+  out.push(L3);
+
+  // L4 bezel + crystal + crown
+  var L4='<g class="layer l4">';
+  L4+='<g transform="'+P(178)+'"><rect x="160" y="-12" width="38" height="24" rx="5" class="brass" transform="translate(0 12)"/></g>';
+  L4+=disc(178,176,18,'steel-top','steel-side');
+  L4+='<ellipse cx="'+CX+'" cy="178" rx="156" ry="'+(156*K)+'" class="steel-side"/>';
+  L4+='<ellipse cx="'+CX+'" cy="176" rx="150" ry="'+(150*K)+'" fill="var(--glass)" stroke="var(--glass-edge)" stroke-width="1.5"/>';
+  L4+='<ellipse cx="'+CX+'" cy="174" rx="150" ry="'+(150*K)+'" fill="url(#shine)"/>';
+  L4+='<g transform="'+P(176)+'"><path d="M-150 -40L150 -40" stroke="url(#sweep)" stroke-width="60" opacity=".7"/>';
+  L4+='<circle r="176" class="steel-edge" stroke-width="2"/>';
+  for(i=0;i<60;i++){var a=i*Math.PI/30;L4+='<circle cx="'+(Math.cos(a)*166).toFixed(1)+'" cy="'+(Math.sin(a)*166).toFixed(1)+'" r="1.6" fill="var(--steel-edge)"/>'}
+  L4+='<g transform="translate(176 0)"><rect x="0" y="-13" width="26" height="26" rx="5" class="brass"/><path d="M6 -13v26M12 -13v26M18 -13v26" stroke="var(--brass-d)" stroke-width="1.4"/></g></g></g>';
+  out.push(L4);
+
+  // callouts
+  var C=[['Sapphire crystal',178,640,170],['Dial · hand-guilloché',320,640,318],['Calibre HV-01',470,640,470],['Caseback · 904L',632,640,640]];
+  var co='<g class="callout">';
+  C.forEach(function(c,i){var x1=CX+160,y=c[1];
+    co+='<circle cx="'+(c[3]>0?x1+(i==0?20:0):0)+'" cy="'+y+'" r="3"/>';
+  });
+  co='<g class="callout">';
+  [[178,'Sapphire crystal'],[320,'Hand-finished dial'],[470,'Calibre HV-01'],[632,'Caseback, 904L steel']].forEach(function(c){
+    co+='<line x1="'+(CX+170)+'" y1="'+c[0]+'" x2="'+(CX+232)+'" y2="'+c[0]+'"/><circle cx="'+(CX+170)+'" cy="'+c[0]+'" r="3.5"/><text x="'+(CX+242)+'" y="'+(c[0]+5)+'">'+c[1]+'</text>';
+  });
+  co+='</g>';
+  out.push(co);
+
+  document.getElementById('scene').innerHTML=out.join('');
+  // widen viewBox for callouts on desktop
+  var svg=document.getElementById('watch');
+  function vb(){svg.setAttribute('viewBox', window.innerWidth>900?'60 40 960 800':'120 40 560 780')}
+  vb();addEventListener('resize',vb);
+
+  // theme
+  var root=document.documentElement,btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme');if(s)root.dataset.theme=s}catch(e){}
+  btn.onclick=function(){
+    var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';
+    try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+  };
+  var nav=document.getElementById('nav'),m=document.getElementById('menu');
+  m.onclick=function(){var o=nav.classList.toggle('open');m.setAttribute('aria-expanded',o)};
+})();
+</script>
+</body>
+</html>
