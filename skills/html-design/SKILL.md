@@ -20,11 +20,14 @@ not what makes their AI output good. The process is. Follow it every time.
     this first; it changes the taste rules below.
   - **Moods considered:** 3 to 5 physical settings the product could live in, some
     expected and some surprising.
-  - **Mood picked:** one that was not your first idea, with one sentence on why. First
-    ideas converge on the same few looks.
+  - **Mood picked:** the one that will look best for this brief, with one sentence on
+    why. For a familiar genre the obvious mood is often right; go less obvious only
+    when it clearly looks better, not just because it is less obvious.
   - **Palette:** 5 or 6 hex values with roles. Name the real object each one comes from
     (a "harbour at dawn" mood: wet rope, fog, signal-buoy red). A colour with no object
-    behind it is guesswork.
+    behind it is guesswork. Then judge the palette by eye, not by its story: put the
+    swatches side by side and check that they look good together, that the ink is not
+    heavier than the content, and that nothing reads childish or muddy by accident.
   - **Type:** families, weights and a size scale.
   - **Direction:** one sentence.
 - Pairings that work, because both colours share one scene (ground x accent). Treat
@@ -104,6 +107,8 @@ not what makes their AI output good. The process is. Follow it every time.
   text baseline: line-height equals rule spacing.
 - Dark mode re-tints every colour into the same world at night (paper becomes darker
   stock, tape stays tape); it is never a plain inversion and never loses its warmth.
+  Keep each colour's chroma and lower only its lightness; a colour that turns olive,
+  brown, grey or salmon in dark mode is a bug. Accents may need to get lighter, never duller.
 - On phones, rows of chips or filters scroll sideways instead of wrapping one orphan.
 - Several directions means several personalities, not one layout recoloured.
 - Placeholder content looks real (plausible names, numbers, dates) and is always fake.
