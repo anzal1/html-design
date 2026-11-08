@@ -59,16 +59,28 @@ not what makes their AI output good. The process is. Follow it every time.
 - Remove before you add. Fewer, better elements and real space around them, plus one
   warm, human detail so it does not feel sterile.
 - Spacing has intent: tight inside a group, open around the main moment.
-- Build hierarchy from contrast in size and weight: a big, heavy headline beside small,
-  plain labels. Pull tracking in slightly on large type; leave small caps loose.
+- Build hierarchy from contrast in size and weight, Swiss editorial style: a big, heavy
+  display line beside small, light or regular labels. Push the gap between display and
+  label weights as far as it goes. Pull tracking in slightly on large type; leave small
+  caps and tiny labels loose.
+- Prefer asymmetry and scale contrast (one very large element next to small muted text)
+  over evenly weighted grids.
+- It should look like a designer with a strong point of view made it, not like parts
+  pulled from a component library. Invest in hierarchy, spacing and contrast, not decoration.
 - Know the goal. Product screens are judged on clarity; brand and marketing pages can
   lead with personality. For a fun or bold brand, pick one or two playful moves (a
   second accent, a hand-drawn mark, a sticker-like tilt, witty copy), never all of them.
+- When a request is vague or open ("design something cool"), pick one small deliverable
+  and execute it exceptionally well so it lands at first look.
 - Colour: one strong accent used in one or two places beats many. Extra colours only
-  carry meaning (status, categories, people) and come from the same setting.
+  carry meaning (status, categories, data series, people) and come from the same
+  setting. A playful brand can use a duo or trio of accents, but keep one primary, keep
+  overall saturation calm and spend less on other decoration.
 - Grounds: plain white suits most product UI. Cream, ivory and bone belong to specific
   moods, not to "neutral". Greys come from the setting or stay truly neutral. Pure black
-  pairs with a vivid accent; otherwise tint dark grounds toward the mood.
+  pairs with a vivid accent or an inky, nocturnal or subterranean mood; otherwise tint
+  dark grounds toward the mood (warm charcoal for candlelit, graphite for maritime).
+  Neutral greys when there is no scene reason: #EEEEEE, #CCCCCC, #888888, #444444.
 - Combinations that read as tired or muddy, so skip them unless asked: cream with
   terracotta-family reds and oranges; cream with neon; navy or charcoal with electric
   purple, lime or teal; plain white with dusty earth tones (give those a tinted ground);
@@ -79,13 +91,15 @@ not what makes their AI output good. The process is. Follow it every time.
 - Skip dated effects: heavy gradients, layered shadows, gloss.
 - Several directions means several personalities, not one layout recoloured.
 - Placeholder content looks real (plausible names, numbers, dates) and is always fake.
+  Images are plain placeholders (solid fills, SVG shapes) unless the user asks for generated ones.
 - Icons are SVG from one set, never emoji. Icons in navigation or actions get a visible label.
 
 ## 3. Markup rules
 
 - Tokens live in one `tokens.css` as CSS variables, grouped by kind: `--color-*`,
   `--font-*`, `--text-*` (sizes), `--leading-*`, `--tracking-*`, `--space-*`,
-  `--radius-*`, `--breakpoint-*`. Light by default, dark under `prefers-color-scheme`
+  `--radius-*`, `--opacity-*`, `--container-*`, `--breakpoint-*`. Define a small set in
+  every namespace even if some go unused. Light by default, dark under `prefers-color-scheme`
   and `[data-theme]`. Shared pieces live in `base.css`. Screens use `var(--token)`,
   never raw values, except one-off illustration colours. Tints via
   `color-mix(in srgb, var(--color-accent) 40%, transparent)`.
@@ -102,7 +116,9 @@ not what makes their AI output good. The process is. Follow it every time.
 
 ## 4. Build in small pieces, review each piece
 
-Write one visual group at a time (a header, one row, a button bar), then look at it.
+Write one visual group at a time (a header, one row, a button bar), about 15 lines of
+markup at most, then look at it. A card with a header, four rows and a footer is six
+steps, not one.
 After each one, screenshot and ask:
 
 - **Rhythm:** do the gaps feel chosen? Anything crowded, or empty by accident?
