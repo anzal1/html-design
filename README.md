@@ -6,7 +6,7 @@ Canvas tools like Paper render HTML and CSS too. What makes their AI output look
 
 ## What it makes the agent do
 
-1. Read the taste from your ask (words, references, brand, existing kit) and post a short brief. No house style.
+1. Grill the design before building, in rounds, like a design lead: ground truth, then the unknowns (style, palette, type, system), then harmony, the signature idea and the stitching. Taste comes from you; there is no house style.
 2. Keep every colour, size and radius in one `tokens.css`, with light and dark themes.
 3. Build one visual group at a time, screenshot it, and check it against strict, evidence-based usability rules (WCAG 2.2 contrast and focus, target sizes, readable type, state never colour alone).
 4. Run a contact sheet at 8 widths from 375 to 2560, light and dark. It fails on sideways scroll, console errors and failed requests.

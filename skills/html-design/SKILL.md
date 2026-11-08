@@ -19,27 +19,58 @@ Two kinds of guidance live here, and they are treated differently:
   readability studies). They apply to every style, and a style is executed fully
   *within* them, never flattened by them.
 
-## 1. Before any markup: read the taste from the ask
+## 1. Grill the design before any markup
 
-- Look for an existing kit first (a `tokens.css`, a design-system folder, a design file
-  the user named). If one exists, use only its tokens and components. Never invent a
-  colour, size or radius outside the kit; add a token and say so.
-- Collect every taste signal: the words used (expressive, calm, premium, playful,
-  neumorphic, hand-drawn), references or brands named, the product and its audience,
-  screenshots given, past feedback. A named style is a commitment: execute it fully
-  and convincingly (neumorphism needs paired light and dark shadows from one light
-  source and pressed states that visibly invert; glassmorphism needs real blur; a
-  hand-drawn look needs real wobble and marks), then make it usable.
-- Post a short brief in chat before writing files (wait for approval only if asked):
-  - **What I heard:** the taste signals, quoted or paraphrased.
-  - **Direction:** one or two sentences on how the design will express them.
-  - **Palette:** 5 or 6 hex values with roles.
-  - **Type:** families, weights and a size scale.
-- If the ask carries almost no taste signal, ask one short question, or make 2 or 3
-  genuinely different directions and let the user pick. `palettes.md` in this folder
-  has optional starting points when the user wants suggestions.
-- Default to a light theme unless the user asks otherwise; always ship dark tokens too.
-- Check fonts exist (Google Fonts or local) before using them.
+A designer settles the unknowns before drawing: who it is for, the style, the palette,
+the type, the system. Only then do harmony, the new idea and the stitching between
+parts make sense. Interview the user until that tree is settled, the way a design lead
+would. `grill.md` in this folder has the full question tree for each layer.
+
+**How to run it**
+
+- Map the work as a **design tree**: every decision branches into the decisions that
+  hang off it. The layers, in dependency order:
+  1. **Ground truth:** what it is, who uses it and where, what surfaces (screens,
+     components, widths, themes), the taste signals (words, references, brands, things
+     they dislike), and any existing kit.
+  2. **Unknowns:** the style commitment, then palette, type, and the system (spacing,
+     radius, elevation or shadow language, density, grid, icons, motion).
+  3. **Harmony:** how those foundations work together (contrast rhythm, one shape and
+     shadow language, how dark mode maps, where density changes).
+  4. **Innovation:** the one signature move people will remember or screenshot, where
+     it lives, and what stays quiet so it can be seen.
+  5. **Stitching:** how the parts connect: states, transitions, spacing between
+     sections, navigation, empty, loading and error, how components compose into the
+     page.
+- Work in **rounds**. The frontier is every decision whose prerequisites are settled.
+  Ask the whole frontier at once, numbered, each with your recommended answer, worded
+  so "yes" accepts it. Wait for answers, recompute, ask the next round. A question that
+  depends on another open question waits for a later round.
+
+  ```
+  ❓ **Q1** - **<title>**: <question, with options where useful>
+
+  ➡️ <recommended answer>
+  ```
+
+- **Show, don't describe** for anything visual. For palette and type questions, render
+  2 or 3 options as a quick specimen (swatches with real text on them, type scale with
+  real content), screenshot it with `shot.mjs`, and ask by option.
+- **Facts are your job.** Existing tokens, installed fonts, a brand's colours from its
+  site, what a reference looks like: look them up (dispatch a sub-agent if slow), never
+  ask. Decisions are the user's.
+- **Taste is the user's.** Recommendations follow their signals, not a house style. A
+  named style is a commitment, executed fully and then made usable within it.
+- **Done when the frontier is empty** and the user confirms the shared understanding.
+  Write the settled tree to `BRIEF.md` (one line per decision) before any markup.
+- **Speed:** if the user already gave a full brief or says "just build", collapse the
+  grill to one round of recommendations covering every layer and proceed on "yes". If
+  no human is available (you are a sub-agent), decide every node yourself from the
+  signals in the ask, mark each as assumed in `BRIEF.md`, and build.
+- Look for an existing kit first. If one exists, its tokens and components settle the
+  unknowns layer; never invent a colour, size or radius outside it (add a token and
+  say so).
+- Default to a light theme unless the user asks otherwise; always ship dark tokens.
 
 ## 2. Craft that serves any style
 
