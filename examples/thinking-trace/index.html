@@ -6,83 +6,75 @@
 <title>Thinking trace</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;600&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="trace.css">
 </head>
 <body>
 <main class="stage">
-	<p class="prompt"><span class="who">You</span>Is it cheaper to take the train or fly from Lisbon to Porto next Friday?</p>
+	<article class="turn">
+		<p class="tag">// done</p>
+		<p class="q">is the train or the flight cheaper, lisbon → porto, fri 14 nov?</p>
 
-	<section class="trace" data-state="done" aria-label="Reasoning">
-		<button class="trace-head" aria-expanded="true" aria-controls="t1-body">
-			<span class="mark" aria-hidden="true"></span>
-			<span class="trace-title">Thought for 14 seconds</span>
-			<span class="trace-meta">4 steps · 2 searches</span>
-			<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-		</button>
-		<ol class="steps" id="t1-body">
-			<li class="step">
-				<span class="step-label">Reading</span>
-				<p class="thought">They want the cheaper option for one specific day, so prices on Friday 14 November matter more than averages.</p>
-			</li>
-			<li class="step">
-				<span class="step-label">Searching</span>
-				<p class="thought">Checking CP Alfa Pendular fares and TAP and Ryanair flights for that date.</p>
-				<ul class="tools">
-					<li class="tool"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="tool-q" title="cp.pt fares Lisboa to Porto">cp.pt fares Lisboa to Porto</span><span class="tool-n">3 results</span></li>
-					<li class="tool"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><span class="tool-q" title="LIS to OPO flights 14 Nov">LIS to OPO flights 14 Nov</span><span class="tool-n">5 results</span></li>
-				</ul>
-			</li>
-			<li class="step">
-				<span class="step-label">Comparing</span>
-				<p class="thought">The train is €31.40 and city centre to centre. The cheapest flight is €24, but the bag fee and two airport transfers push it past €50.</p>
-			</li>
-			<li class="step">
-				<span class="step-label">Deciding</span>
-				<p class="thought">The train wins on total cost and is close on door-to-door time, about <em class="hl">three hours either way</em>.</p>
-			</li>
-		</ol>
-	</section>
+		<section class="trace" aria-label="Reasoning" style="--total: 14.2">
+			<button class="head" aria-expanded="true" aria-controls="t1">
+				<span class="dur">14.2<span class="unit">s</span></span>
+				<span class="sum"><span>thought</span><span class="dim meta"><span>4 steps</span><span class="sep"> · </span><span>2 calls</span><span class="sep"> · </span><span>1.9k tok</span></span></span>
+				<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+			</button>
+			<ol class="log" id="t1">
+				<li><details><summary style="--s:0;--d:1.6"><i class="g"></i><b>read</b><span class="det">prompt · one date, so day fares beat averages</span><span class="bar"></span><span class="t">1.6s</span></summary>
+					<p class="full">They want the cheaper option for one specific day, so prices on Friday 14 November matter more than averages.</p></details></li>
+				<li><details><summary style="--s:1.6;--d:4.1"><i class="g tool"></i><b>search</b><span class="det">cp.pt alfa pendular lis→opo <span class="dim">3 hits</span></span><span class="bar"></span><span class="t">4.1s</span></summary>
+					<p class="full">Pulled the CP fare table for the 08:39 and 10:39 Alfa Pendular. Cheapest second class is €31.40.</p></details></li>
+				<li><details><summary style="--s:5.7;--d:3.8"><i class="g tool"></i><b>search</b><span class="det">flights LIS→OPO 14 nov <span class="dim">5 hits</span></span><span class="bar"></span><span class="t">3.8s</span></summary>
+					<p class="full">Ryanair from €24 without a bag, TAP from €58. Bag fee is €22 and each airport transfer about €4.</p></details></li>
+				<li><details><summary style="--s:9.5;--d:4.7"><i class="g"></i><b>decide</b><span class="det"><mark>train €31.40</mark> &lt; flight €54 all in</span><span class="bar"></span><span class="t">4.7s</span></summary>
+					<p class="full">Train wins on total cost and is close on door-to-door time, about three hours either way.</p></details></li>
+			</ol>
+		</section>
 
-	<p class="answer">Take the train. The Alfa Pendular costs €31.40 on Friday and drops you in the centre of Porto, while the cheapest flight ends up above €50 once you add a bag and airport transfers.</p>
-	<p class="state-tag">While thinking</p>
-	<p class="prompt"><span class="who">You</span>Which of my three draft names reads best for a bakery in Pune?</p>
-	<section class="trace" data-state="live" aria-label="Reasoning" aria-live="polite">
-		<button class="trace-head" aria-expanded="true" aria-controls="t2-body">
-			<span class="mark" aria-hidden="true"></span>
-			<span class="trace-title">Thinking<span class="elapsed" data-elapsed>, 6s</span></span>
-			<span class="trace-meta">2 steps</span>
-			<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-		</button>
-		<ol class="steps" id="t2-body">
-			<li class="step">
-				<span class="step-label">Reading</span>
-				<p class="thought">The names are Crumb &amp; Co, Shakkar and Second Rise. They need to work on a sign and be easy to say aloud.</p>
-			</li>
-			<li class="step is-live">
-				<span class="step-label">Weighing</span>
-				<p class="thought"><span data-stream>Shakkar is warm and local, and people will remember it after hearing it once. Crumb &amp; Co sounds like a chain.</span><span class="caret" aria-hidden="true"></span></p>
-			</li>
-		</ol>
-	</section>
+		<p class="a">Take the train. The Alfa Pendular is €31.40 on Friday and lands you in central Porto. The cheapest flight passes €50 once you add a bag and transfers.</p>
+	</article>
 
-	<p class="state-tag">Collapsed</p>
-	<p class="prompt"><span class="who">You</span>Summarise the lease in two lines.</p>
-	<section class="trace" data-state="done" aria-label="Reasoning">
-		<button class="trace-head" aria-expanded="false" aria-controls="t3-body">
-			<span class="mark" aria-hidden="true"></span>
-			<span class="trace-title">Thought for 9 seconds</span>
-			<span class="trace-meta">3 steps · read 1 file</span>
-			<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-		</button>
-		<ol class="steps" id="t3-body" hidden>
-			<li class="step"><span class="step-label">Reading</span><p class="thought">Eleven pages; the parts that matter are rent, term and the exit clause.</p></li>
-			<li class="step"><span class="step-label">Checking</span><p class="thought">Rent rises 5% a year and the lock-in is twelve months, with two months' notice after that.</p></li>
-			<li class="step"><span class="step-label">Writing</span><p class="thought">Two lines means leading with money, then the way out.</p></li>
-		</ol>
-	</section>
-	<p class="answer">Rent is ₹38,000 a month, rising 5% each year. You are locked in for twelve months, then can leave with two months' notice.</p>
+	<article class="turn">
+		<p class="tag">// streaming</p>
+		<p class="q">which name reads best on a bakery sign in pune: crumb &amp; co, shakkar, second rise?</p>
+		<section class="trace is-live" aria-label="Reasoning" aria-live="polite" style="--total: 9">
+			<button class="head" aria-expanded="true" aria-controls="t2">
+				<span class="dur" data-clock>6.4<span class="unit">s</span></span>
+				<span class="sum"><mark>thinking</mark><span class="dim meta"><span>2 steps</span><span class="sep"> · </span><span>0 calls</span><span class="sep"> · </span><span>0.6k tok</span></span></span>
+				<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+			</button>
+			<ol class="log" id="t2">
+				<li><details><summary style="--s:0;--d:2.2"><i class="g"></i><b>read</b><span class="det">3 names · must work said aloud</span><span class="bar"></span><span class="t">2.2s</span></summary>
+					<p class="full">The names are Crumb &amp; Co, Shakkar and Second Rise. A sign is read from across a road and repeated by word of mouth.</p></details></li>
+				<li class="live"><details open><summary style="--s:2.2;--d:4.2" data-live-row><i class="g"></i><b>weigh</b><span class="det">shakkar: local, warm, one hearing</span><span class="bar"></span><span class="t" data-live-t>4.2s</span></summary>
+					<p class="full"><span data-stream>Shakkar is warm and local, and people remember it after hearing it once. Crumb &amp; Co sounds like a chain.</span><span class="caret" aria-hidden="true"></span></p></details></li>
+			</ol>
+		</section>
+	</article>
+
+	<article class="turn">
+		<p class="tag">// collapsed</p>
+		<p class="q">summarise the lease in two lines</p>
+		<section class="trace" aria-label="Reasoning" style="--total: 9.1">
+			<button class="head" aria-expanded="false" aria-controls="t3">
+				<span class="dur">9.1<span class="unit">s</span></span>
+				<span class="sum"><span>thought</span><span class="dim meta"><span>3 steps</span><span class="sep"> · </span><span>1 file</span><span class="sep"> · </span><span>4.2k tok</span></span></span>
+				<svg class="chev" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+			</button>
+			<ol class="log" id="t3" hidden>
+				<li><details><summary style="--s:0;--d:5.3"><i class="g tool"></i><b>open</b><span class="det">lease-2026.pdf <span class="dim">11 pages</span></span><span class="bar"></span><span class="t">5.3s</span></summary>
+					<p class="full">Rent, term and the exit clause are the parts that matter.</p></details></li>
+				<li><details><summary style="--s:5.3;--d:2.6"><i class="g"></i><b>check</b><span class="det">+5%/yr · 12 mo lock-in · 2 mo notice</span><span class="bar"></span><span class="t">2.6s</span></summary>
+					<p class="full">Rent rises 5% a year, lock-in is twelve months, with two months' notice after that.</p></details></li>
+				<li><details><summary style="--s:7.9;--d:1.2"><i class="g"></i><b>write</b><span class="det">money first, then the way out</span><span class="bar"></span><span class="t">1.2s</span></summary>
+					<p class="full">Two lines means leading with money, then the exit.</p></details></li>
+			</ol>
+		</section>
+		<p class="a">Rent is ₹38,000 a month, rising 5% each year. You're locked in for twelve months, then can leave with two months' notice.</p>
+	</article>
 </main>
 <script src="trace.js"></script>
 </body>

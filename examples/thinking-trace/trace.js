@@ -1,4 +1,4 @@
-for (const head of document.querySelectorAll(".trace-head")) {
+for (const head of document.querySelectorAll(".head")) {
 	head.addEventListener("click", () => {
 		const open = head.getAttribute("aria-expanded") === "true";
 		head.setAttribute("aria-expanded", String(!open));
@@ -6,18 +6,21 @@ for (const head of document.querySelectorAll(".trace-head")) {
 	});
 }
 
-// Stream the live step and tick its timer, unless the viewer prefers less motion.
+// Live turn: stream the thought, grow the bar and tick the clock.
 const stream = document.querySelector("[data-stream]");
-const elapsed = document.querySelector("[data-elapsed]");
 if (stream && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+	const clock = document.querySelector("[data-clock]");
+	const row = document.querySelector("[data-live-row]");
+	const rowT = document.querySelector("[data-live-t]");
 	const full = stream.textContent;
-	let i = 0;
-	let secs = 6;
-	const type = () => {
-		i = (i + 1) % (full.length + 40);
-		stream.textContent = full.slice(0, Math.min(i, full.length));
-		setTimeout(type, i > full.length ? 60 : 28 + Math.random() * 40);
+	let t = 0;
+	const tick = () => {
+		t = (t + 0.1) % 9;
+		const shown = Math.min(1, t / 6);
+		stream.textContent = full.slice(0, Math.round(full.length * shown));
+		row.style.setProperty("--d", Math.min(t, 6.8).toFixed(2));
+		rowT.textContent = `${Math.min(t, 6.8).toFixed(1)}s`;
+		clock.firstChild.textContent = (2.2 + Math.min(t, 6.8)).toFixed(1);
 	};
-	type();
-	setInterval(() => (elapsed.textContent = `, ${++secs}s`), 1000);
+	setInterval(tick, 100);
 }
