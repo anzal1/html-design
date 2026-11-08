@@ -108,7 +108,7 @@ These are techniques, not taste. Use them in whatever style the user asked for.
 - **Semantics:** real labels, buttons that are buttons, links that are links, alt text,
   headings in order, icons in navigation and actions carry a visible label.
 - **Motion:** respect `prefers-reduced-motion`; nothing flashes more than 3 times a
-  second (WCAG 2.3.1).
+  second (WCAG 2.3.1). Details in section 5.
 - **Fit:** nothing clipped, no sideways scroll, no text breaking mid-word, at every
   width from 375 to 2560.
 - **Alignment:** repeated rows give icons and trailing actions a fixed slot (`width`
@@ -125,7 +125,70 @@ These are techniques, not taste. Use them in whatever style the user asked for.
 - Layout with flex, gap and padding. Use grid where columns must align across rows.
 - Units: px for font sizes and line heights, em for letter spacing.
 
-## 5. Build in small pieces, review each piece
+## 5. Motion: micro, macro and gestures
+
+Motion is part of the design, not a finish added at the end. Decide it in the grill
+(layer 2 for the motion language, layer 5 for transitions). The essentials are below;
+for depth, load Emil Kowalski's skills if they are installed (`npx skills add
+emilkowalski/skills`): `animate` for one element, `choreograph` for several,
+`gestures` for drag and swipe, `review-animations` to critique, `animation-performance`
+when it drops frames. The numbers here follow those skills.
+
+**First, should it move at all?** Animate for feedback, continuity or orientation,
+never for decoration alone. Nothing triggered by the keyboard or used 100+ times a day
+animates (command palettes, shortcuts, menu rows). Marketing and first-run moments get
+more room than product UI.
+
+**Micro (one element: press, hover, toggle, tooltip, toast)**
+- Durations: press feedback 100 to 160ms, tooltips 125 to 200ms, dropdowns 150 to
+  250ms, modals and drawers 200 to 500ms. Product UI stays under 300ms.
+- `ease-out` for entering and default (strong: `cubic-bezier(0.23, 1, 0.32, 1)`),
+  never `ease-in` on UI. Exits are shorter than entrances.
+- Never appear from `scale(0)`; start at `scale(0.95)` with `opacity: 0`. Press
+  feedback is about `scale(0.97)`.
+- Animate `transform` and `opacity` only. Write transforms on the moving element, not
+  through a CSS variable on its parent.
+- Anything the user can re-trigger uses transitions (or springs), never `@keyframes`,
+  so it can be interrupted mid-flight without jumping.
+- Gate hover effects behind `@media (hover: hover) and (pointer: fine)`.
+
+**Macro (several elements: hero entrance, view swap, list, multi-step)**
+- Cast roles first: one lead (moves most, first), support (moves less), decoration
+  (fades only), static (does not move). Two leads means a hierarchy problem.
+- One entrance per container: if the panel slides in, its content is already there.
+- Run things together by default; sequence only when order means something (reading
+  order, cause and effect). Overlap the hand-off slightly so it reads as one gesture.
+- Stagger product UI 30 to 80ms with the total under about 300ms; marketing heroes can
+  use 100 to 150ms steps. Never uniform: vary distance and delay by importance.
+- Never stagger high-frequency UI, and never block a click on something visible.
+- Direction follows the mental model (forward moves left, back moves right). Exits
+  are simultaneous, shorter, and leave the way they came.
+- Sub-animations of one component share one timing family.
+
+**Gestures (drag, swipe, sheets, hold)**
+- While the finger is down, the element tracks it 1:1 with no easing. On release,
+  physics finishes with the release velocity.
+- Dismiss on distance (about 40 to 50%) or a fast flick. Rubber-band at the edges.
+  Bounce only after a drag, never after a button press.
+- An element dismisses the way it entered. Hold-to-confirm runs `linear`; cancelling
+  snaps back fast with `ease-out`.
+- Set `touch-action` on the drag axis. Prefer a proven library for sheets (Vaul) over
+  hand-rolling.
+
+**Reduced motion:** keep direct manipulation, drop momentum, bounce and decoration;
+replace movement with a short opacity change; the final state must be complete.
+
+**Verify motion, don't assume it.** Screenshots with `shot.mjs` freeze motion, so also
+capture timed frames with motion on and look at them:
+
+```bash
+node <skill-dir>/frames.mjs <page.html> <out-dir> --times=0,150,300,600,1200 [--dark] [--click=#id] [--hover=.card]
+```
+
+Check that the lead moves first, nothing jumps or overlaps mid-flight, and the end
+state matches the static shot. For gestures, test on a real phone over the local IP.
+
+## 6. Build in small pieces, review each piece
 
 Write one visual group at a time (a header, one row, a button bar), about 15 lines of
 markup at most, then look at it. A card with a header, four rows and a footer is six
@@ -153,7 +216,7 @@ Screenshot a single page (2x, optional dark and focus):
 node <skill-dir>/shot.mjs <page.html> <out.png> [--dark] [--focus=#id] [--width=390] [--height=844]
 ```
 
-## 6. Breakpoint pass before showing anyone
+## 7. Breakpoint pass before showing anyone
 
 Run the contact sheet at every width, light and dark. It fails on sideways overflow,
 console errors and failed requests:
@@ -166,7 +229,7 @@ Then look at every width yourself (zoom where text is small) for balance, clippi
 overlap, alignment and spacing. A FAIL blocks. Only then show the user, with the
 contact sheet image.
 
-## 7. Hand-off
+## 8. Hand-off
 
 - Keep the prototype outside the product repo unless the user wants it there.
 - When it is approved, builders translate markup into the app's own components and

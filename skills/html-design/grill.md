@@ -23,7 +23,9 @@ never asked.
 - **System:** spacing scale, radius family, elevation or shadow language, border use,
   density (compact or roomy), grid and container widths.
 - **Icons and imagery:** one icon set and stroke weight; illustration or none.
-- **Motion:** none, subtle, or expressive; durations and easing family.
+- **Motion language:** none, subtle, or expressive; one easing family and a duration
+  scale. Which moments are micro (press, hover, toggle), which are macro (entrance,
+  view swap), and which are gestures (drag, swipe, sheet)? Which stay still on purpose?
 
 ## Layer 3: harmony (needs layer 2)
 
@@ -45,6 +47,8 @@ never asked.
 - States for every component: hover, pressed, focus, disabled, loading, error, empty.
 - How components compose into sections; spacing between sections versus within them.
 - Navigation and wayfinding; how the user gets in, around and back.
-- Transitions between states and screens.
+- Transitions between states and screens: what is the lead in each, what follows, what
+  stays still, which way does it enter and leave?
+- Gestures: what can be dragged or swiped, where it snaps, how it dismisses.
 - Responsive behaviour: what reflows, what hides behind disclosure, what stays fixed.
 - Hand-off: what the builder needs (tokens file, component list, the prototype).
